@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace StudentDesktopWF
 {
-    public partial class Form1 : Form
+    public partial class formMain : Form
     {
-        public Form1()
+        public formMain()
         {
             InitializeComponent();
+        }
+
+        private void toolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
