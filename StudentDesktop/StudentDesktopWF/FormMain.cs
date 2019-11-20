@@ -49,7 +49,7 @@ namespace vcz.StudentDesktopWF
                 }
             }
             Person.SaveToFile(personList);
-            MessageBox.Show("Заглушка:Сохранено");
+            MessageBox.Show("Данные сохранены");
         }
 
         private void formMain_Load(object sender, EventArgs e)
