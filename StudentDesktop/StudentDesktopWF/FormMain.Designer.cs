@@ -60,11 +60,8 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewPersons = new System.Windows.Forms.DataGridView();
-            this.сolLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCompetencies = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).BeginInit();
             this.SuspendLayout();
@@ -314,41 +311,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPersons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.сolLastname,
-            this.colName,
-            this.colBirthday,
-            this.colDepartment,
-            this.colCompetencies});
+            this.cLastName,
+            this.cFirstName});
             this.dataGridViewPersons.Location = new System.Drawing.Point(12, 49);
             this.dataGridViewPersons.Name = "dataGridViewPersons";
             this.dataGridViewPersons.Size = new System.Drawing.Size(858, 333);
             this.dataGridViewPersons.TabIndex = 1;
             this.dataGridViewPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPersons_CellContentClick);
             // 
-            // сolLastname
+            // cLastName
             // 
-            this.сolLastname.HeaderText = "Фамилия";
-            this.сolLastname.Name = "сolLastname";
+            this.cLastName.HeaderText = "Фамилия";
+            this.cLastName.Name = "cLastName";
             // 
-            // colName
+            // cFirstName
             // 
-            this.colName.HeaderText = "Имя";
-            this.colName.Name = "colName";
-            // 
-            // colBirthday
-            // 
-            this.colBirthday.HeaderText = "Дата рождения";
-            this.colBirthday.Name = "colBirthday";
-            // 
-            // colDepartment
-            // 
-            this.colDepartment.HeaderText = "Департамент";
-            this.colDepartment.Name = "colDepartment";
-            // 
-            // colCompetencies
-            // 
-            this.colCompetencies.HeaderText = "Компетенции";
-            this.colCompetencies.Name = "colCompetencies";
+            this.cFirstName.HeaderText = "Имя";
+            this.cFirstName.Name = "cFirstName";
             // 
             // formMain
             // 
@@ -402,11 +381,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridViewPersons;
-        private System.Windows.Forms.DataGridViewTextBoxColumn сolLastname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBirthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCompetencies;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cFirstName;
     }
 }
 

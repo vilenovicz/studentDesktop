@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.IO;
 
 namespace vcz.StudentDesktopWF
 {
     public class Person
     {
 
-        public string LastName { get; private set; }
-        public string FirstName { get; private set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
         public DateTime Birthday { get; set; }
 
         public Person(string lastName, string firstName, DateTime birthday)
@@ -17,6 +18,9 @@ namespace vcz.StudentDesktopWF
             Birthday = birthday;
         }
 
+        public Person()
+        {
+        }
         public Person(string lastName, string firstName)
         {
             LastName = lastName;
@@ -28,11 +32,22 @@ namespace vcz.StudentDesktopWF
             return this.LastName + " " + this.FirstName;
         }
 
-        public void SaveToFile(Person persons)
+        public static void SaveToFile(ArrayList arr)
         {
-            string filename = "~\\persons.csv";
+            string filename = "persons.csv";
+
+            if (arr != null)
+            {
+                StreamWriter sw = File.CreateText(filename);
+                foreach (Person item in arr)
+                {
+                    sw.WriteLine(item);
+                }
+                sw.Close();
+            }
 
         }
+
 
 
         // public List<String> Compentencies { get; set; }
