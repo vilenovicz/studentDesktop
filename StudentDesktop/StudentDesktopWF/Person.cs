@@ -41,13 +41,35 @@ namespace vcz.StudentDesktopWF
                 StreamWriter sw = File.CreateText(filename);
                 foreach (Person item in arr)
                 {
-                    sw.WriteLine(item);
+                    sw.Write(item.LastName);
+                    sw.Write("|");
+                    sw.WriteLine(item.FirstName);
                 }
                 sw.Close();
             }
 
         }
 
+        public static ArrayList LoadFromFile()
+        {
+            ArrayList arr = new ArrayList();
+            
+            string filename = "persons.csv";
+            StreamReader sr = File.OpenText(filename);
+            while (!sr.EndOfStream)
+            {
+                String[] fields = sr.ReadLine().Split('|');
+                if (fields.Length>=2) 
+                {
+                    Person person = new Person();
+                    person.LastName = fields[0];
+                    person.FirstName = fields[1];
+                    arr.Add(person);
+                }
+            }
+            sr.Close();
+            return arr;
+        }
 
 
         // public List<String> Compentencies { get; set; }

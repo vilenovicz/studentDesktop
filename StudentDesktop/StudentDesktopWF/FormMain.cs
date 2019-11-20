@@ -59,9 +59,20 @@ namespace vcz.StudentDesktopWF
             //пока грузим только hardcoded
             Person ivan = new Person("Иванов", "Иван");
             Person vasy = new Person("Васильев", "Вася");
-            dataGridViewPersons.Rows.Add(ivan.LastName,ivan.FirstName);
-            dataGridViewPersons.Rows.Add(vasy.LastName, vasy.FirstName);
 
+            //dataGridViewPersons.Rows.Add(ivan.LastName,ivan.FirstName);
+            //dataGridViewPersons.Rows.Add(vasy.LastName, vasy.FirstName);
+
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ArrayList personList = Person.LoadFromFile();
+            foreach (Person person in personList)
+            {
+                dataGridViewPersons.Rows.Add(person.LastName, person.FirstName);
+            }
+            dataGridViewPersons.Refresh();
         }
     }
 }
