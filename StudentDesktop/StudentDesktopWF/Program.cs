@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentDesktopWF
+namespace vcz.StudentDesktopWF
 {
     static class Program
     {
@@ -17,6 +17,9 @@ namespace StudentDesktopWF
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new formMain());
+          //Console.WriteLine("Привет, " + vas);
+//            Console.Read();
+
         }
     }
 }

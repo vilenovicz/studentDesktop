@@ -1,4 +1,4 @@
-﻿namespace StudentDesktopWF
+﻿namespace vcz.StudentDesktopWF
 {
     partial class formMain
     {
@@ -78,7 +78,7 @@
             this.helpToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(812, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(882, 24);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStripMain";
             // 
@@ -130,6 +130,7 @@
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -320,7 +321,7 @@
             this.colCompetencies});
             this.dataGridViewPersons.Location = new System.Drawing.Point(12, 49);
             this.dataGridViewPersons.Name = "dataGridViewPersons";
-            this.dataGridViewPersons.Size = new System.Drawing.Size(788, 333);
+            this.dataGridViewPersons.Size = new System.Drawing.Size(858, 333);
             this.dataGridViewPersons.TabIndex = 1;
             this.dataGridViewPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPersons_CellContentClick);
             // 
@@ -353,12 +354,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 425);
+            this.ClientSize = new System.Drawing.Size(882, 425);
             this.Controls.Add(this.dataGridViewPersons);
             this.Controls.Add(this.menuStripMain);
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "formMain";
             this.Text = "Учет компетенций сотрудников";
+            this.Load += new System.EventHandler(this.formMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).EndInit();
