@@ -30,9 +30,6 @@ namespace vcz.StudentDesktopWF
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Заглушка:Сохранено");
-
-
 
             //dataGridViewPersons.SelectAll();
             ArrayList personList = new ArrayList();
@@ -44,12 +41,14 @@ namespace vcz.StudentDesktopWF
                     Person person = new Person();
                     person.LastName = row.Cells[0].Value.ToString();
                     person.FirstName = row.Cells[1].Value.ToString();
+                    person.Birthday = Convert.ToDateTime(row.Cells[2].Value.ToString());
+                    person.Department = row.Cells[3].Value.ToString();
                     personList.Add(person);
 //                    MessageBox.Show(person.LastName);
                 }
             }
             Person.SaveToFile(personList);
-            MessageBox.Show("Данные сохранены");
+            _ = MessageBox.Show("Данные сохранены");
         }
 
         private void formMain_Load(object sender, EventArgs e)
@@ -70,9 +69,20 @@ namespace vcz.StudentDesktopWF
             ArrayList personList = Person.LoadFromFile();
             foreach (Person person in personList)
             {
-                dataGridViewPersons.Rows.Add(person.LastName, person.FirstName);
+                dataGridViewPersons.Rows.Add(
+                    person.LastName, 
+                    person.FirstName, 
+                    person.Birthday,
+                    person.Department
+                    );
             }
             dataGridViewPersons.Refresh();
+        }
+
+        private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCompetence form = new FormCompetence();
+            form.Show();
         }
     }
 }

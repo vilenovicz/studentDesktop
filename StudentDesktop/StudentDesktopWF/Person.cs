@@ -6,10 +6,24 @@ namespace vcz.StudentDesktopWF
 {
     public class Person
     {
+        private DateTime birthday = DateTime.Now;
 
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateTime Birthday 
+        {
+            get { return birthday; }
+            set
+            { 
+                //Дата рождения не может быть больше текущей даты ;)
+                if (value < DateTime.Now)
+                {
+                    birthday = value;
+                }
+            }
+        }
+
+        public string Department { get; set; }
 
         public Person(string lastName, string firstName, DateTime birthday)
         {
@@ -43,7 +57,11 @@ namespace vcz.StudentDesktopWF
                 {
                     sw.Write(item.LastName);
                     sw.Write("|");
-                    sw.WriteLine(item.FirstName);
+                    sw.Write(item.FirstName);
+                    sw.Write("|");
+                    sw.Write(item.Birthday);
+                    sw.Write("|");
+                    sw.WriteLine(item.Department);
                 }
                 sw.Close();
             }
@@ -53,17 +71,19 @@ namespace vcz.StudentDesktopWF
         public static ArrayList LoadFromFile()
         {
             ArrayList arr = new ArrayList();
-            
+
             string filename = "persons.csv";
             StreamReader sr = File.OpenText(filename);
             while (!sr.EndOfStream)
             {
                 String[] fields = sr.ReadLine().Split('|');
-                if (fields.Length>=2) 
+                if (fields.Length >= 2)
                 {
                     Person person = new Person();
                     person.LastName = fields[0];
                     person.FirstName = fields[1];
+                    person.Birthday = Convert.ToDateTime(fields[2]);
+                    person.Department = fields[3];
                     arr.Add(person);
                 }
             }

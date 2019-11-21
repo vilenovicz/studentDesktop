@@ -17,8 +17,7 @@ namespace vcz.StudentDesktopWF
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new formMain());
-          //Console.WriteLine("Привет, " + vas);
-//            Console.Read();
+
 
         }
     }
