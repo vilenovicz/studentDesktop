@@ -26,7 +26,7 @@ namespace vcz.StudentDesktopWF
             return "(" + this.Code + "):" + this.Name;
         }
 
-        public void Save(ArrayList compArr)
+        public static void SaveToFile(ArrayList compArr)
         {
             string filename = "comp.csv";
 
@@ -43,7 +43,7 @@ namespace vcz.StudentDesktopWF
             }
         }
 
-        public static ArrayList Load()
+        public static ArrayList LoadFromFile()
         {
             ArrayList arr = new ArrayList();
 

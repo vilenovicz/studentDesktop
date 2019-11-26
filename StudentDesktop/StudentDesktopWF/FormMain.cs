@@ -84,5 +84,10 @@ namespace vcz.StudentDesktopWF
             FormCompetence form = new FormCompetence();
             form.Show();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

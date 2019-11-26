@@ -31,6 +31,8 @@
             this.dataGridViewCompetence = new System.Windows.Forms.DataGridView();
             this.cCompCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCompName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bCompetenceSave = new System.Windows.Forms.Button();
+            this.bCompetenceCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompetence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +48,7 @@
             this.cCompName});
             this.dataGridViewCompetence.Location = new System.Drawing.Point(12, 30);
             this.dataGridViewCompetence.Name = "dataGridViewCompetence";
-            this.dataGridViewCompetence.Size = new System.Drawing.Size(776, 408);
+            this.dataGridViewCompetence.Size = new System.Drawing.Size(769, 422);
             this.dataGridViewCompetence.TabIndex = 2;
             this.dataGridViewCompetence.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCompet_CellContentClick);
             // 
@@ -60,11 +62,35 @@
             this.cCompName.HeaderText = "Наименование";
             this.cCompName.Name = "cCompName";
             // 
+            // bCompetenceSave
+            // 
+            this.bCompetenceSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCompetenceSave.Location = new System.Drawing.Point(629, 461);
+            this.bCompetenceSave.Name = "bCompetenceSave";
+            this.bCompetenceSave.Size = new System.Drawing.Size(75, 23);
+            this.bCompetenceSave.TabIndex = 3;
+            this.bCompetenceSave.Text = "Сохранить";
+            this.bCompetenceSave.UseVisualStyleBackColor = true;
+            this.bCompetenceSave.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // bCompetenceCancel
+            // 
+            this.bCompetenceCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCompetenceCancel.Location = new System.Drawing.Point(710, 461);
+            this.bCompetenceCancel.Name = "bCompetenceCancel";
+            this.bCompetenceCancel.Size = new System.Drawing.Size(74, 23);
+            this.bCompetenceCancel.TabIndex = 4;
+            this.bCompetenceCancel.Text = "Отменить";
+            this.bCompetenceCancel.UseVisualStyleBackColor = true;
+            this.bCompetenceCancel.Click += new System.EventHandler(this.bCompetenceCancel_Click);
+            // 
             // FormCompetence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(793, 493);
+            this.Controls.Add(this.bCompetenceCancel);
+            this.Controls.Add(this.bCompetenceSave);
             this.Controls.Add(this.dataGridViewCompetence);
             this.Name = "FormCompetence";
             this.Text = "FormCompetence";
@@ -79,5 +105,7 @@
         private System.Windows.Forms.DataGridView dataGridViewCompetence;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCompCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCompName;
+        private System.Windows.Forms.Button bCompetenceSave;
+        private System.Windows.Forms.Button bCompetenceCancel;
     }
 }
