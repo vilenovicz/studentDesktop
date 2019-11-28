@@ -30,8 +30,6 @@ namespace vcz.StudentDesktopWF
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            //dataGridViewPersons.SelectAll();
             ArrayList personList = new ArrayList();
             DataGridViewRow row;
             for (int i = 0; i < dataGridViewPersons.Rows.Count-1; i++)//  .SelectedRows)
