@@ -4,7 +4,7 @@ using System.IO;
 
 namespace vcz.StudentDesktopWF
 {
-    class Competence
+    public class Competence
     {
         public string Code { get; set; }
         public string Name { get; set; }
@@ -14,7 +14,7 @@ namespace vcz.StudentDesktopWF
             Code = code;
             Name = name;
         }
-
+ 
         public Competence()
         {
             //

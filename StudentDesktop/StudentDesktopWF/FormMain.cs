@@ -43,6 +43,7 @@ namespace vcz.StudentDesktopWF
                     person.FirstName = row.Cells[1].Value.ToString();
                     person.Birthday = Convert.ToDateTime(row.Cells[2].Value.ToString());
                     person.Department = row.Cells[3].Value.ToString();
+                    person.SetCompetenceList(row.Cells[4].Value.ToString());
                     personList.Add(person);
 //                    MessageBox.Show(person.LastName);
                 }
@@ -70,11 +71,12 @@ namespace vcz.StudentDesktopWF
             foreach (Person person in personList)
             {
                 dataGridViewPersons.Rows.Add(
-                    person.LastName, 
-                    person.FirstName, 
+                    person.LastName,
+                    person.FirstName,
                     person.Birthday,
-                    person.Department
-                    );
+                    person.Department,
+                    person.GetCompetenceList()
+                    ); 
             }
             dataGridViewPersons.Refresh();
         }

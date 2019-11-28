@@ -1,13 +1,47 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 
 namespace vcz.StudentDesktopWF
 {
     public class Person
     {
-        private DateTime birthday = DateTime.Now;
+        DateTime birthday = DateTime.Now;
+        List<String> competenceList = new List<String>();
 
+        public List<String> CompetenceList
+        {
+            get { return competenceList; }
+            set { competenceList = value; }
+        }
+
+        public string GetCompetenceList()
+        {
+            string res = "";
+            
+//            Object[] arr = competenceList.ToArray();
+            foreach(String item in competenceList)
+            {
+                res += item;
+                res += ",";
+            }
+            return res;
+        }
+
+        public void SetCompetenceList(string list)
+        {
+            List<String> competences = new List<String>();
+            if (list!=null)
+            {
+                foreach(String item in list.Split(','))
+                {
+                    competences.Add(item);
+                }
+            }
+            this.competenceList = competences;
+        }
+        
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public DateTime Birthday 
@@ -61,7 +95,9 @@ namespace vcz.StudentDesktopWF
                     sw.Write("|");
                     sw.Write(item.Birthday);
                     sw.Write("|");
-                    sw.WriteLine(item.Department);
+                    sw.Write(item.Department);
+                    sw.Write("|");
+                    sw.WriteLine(item.GetCompetenceList());
                 }
                 sw.Close();
             }
@@ -84,6 +120,7 @@ namespace vcz.StudentDesktopWF
                     person.FirstName = fields[1];
                     person.Birthday = Convert.ToDateTime(fields[2]);
                     person.Department = fields[3];
+                    person.SetCompetenceList(fields[4]);
                     arr.Add(person);
                 }
             }
@@ -92,6 +129,6 @@ namespace vcz.StudentDesktopWF
         }
 
 
-        // public List<String> Compentencies { get; set; }
+       
     }
 }
