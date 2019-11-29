@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Xml;
 
 namespace vcz.StudentDesktopWF
 {
@@ -28,19 +29,35 @@ namespace vcz.StudentDesktopWF
 
         public static void SaveToFile(ArrayList compArr)
         {
-            string filename = "comp.csv";
+            //string filename = "comp.csv";
+            string filename = "comp.xml";
+
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.IndentChars = "\t";
+            //settings.Encoding = "utf-8";
+
+
+            XmlWriter xmlWriter = XmlWriter.Create(filename, settings);
+            //пишем заголовок и корень документа
+            xmlWriter.WriteStartDocument();
+            xmlWriter.WriteStartElement("competences");
 
             if (compArr != null)
             {
-                StreamWriter sw = File.CreateText(filename);
+            //    StreamWriter sw = File.CreateText(filename);
                 foreach (Competence item in compArr)
                 {
-                    sw.Write(item.Code);
-                    sw.Write("|");
-                    sw.WriteLine(item.Name);
+                    xmlWriter.WriteStartElement("competence");
+                    xmlWriter.WriteElementString("Code", item.Code);
+                    xmlWriter.WriteElementString("Name", item.Name);
+                    xmlWriter.WriteEndElement();
                 }
-                sw.Close();
+            //    sw.Close();
             }
+            //закрываем корень и сам документ
+            xmlWriter.WriteEndElement();
+            xmlWriter.Close();
         }
 
         public static ArrayList LoadFromFile()
