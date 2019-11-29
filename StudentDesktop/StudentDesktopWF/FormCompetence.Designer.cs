@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridViewCompetence = new System.Windows.Forms.DataGridView();
-            this.cCompCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCompName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bCompetenceSave = new System.Windows.Forms.Button();
             this.bCompetenceCancel = new System.Windows.Forms.Button();
+            this.cCompCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCompName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompetence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,16 +51,6 @@
             this.dataGridViewCompetence.Size = new System.Drawing.Size(769, 422);
             this.dataGridViewCompetence.TabIndex = 2;
             this.dataGridViewCompetence.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCompet_CellContentClick);
-            // 
-            // cCompCode
-            // 
-            this.cCompCode.HeaderText = "Код";
-            this.cCompCode.Name = "cCompCode";
-            // 
-            // cCompName
-            // 
-            this.cCompName.HeaderText = "Наименование";
-            this.cCompName.Name = "cCompName";
             // 
             // bCompetenceSave
             // 
@@ -84,6 +74,18 @@
             this.bCompetenceCancel.UseVisualStyleBackColor = true;
             this.bCompetenceCancel.Click += new System.EventHandler(this.bCompetenceCancel_Click);
             // 
+            // cCompCode
+            // 
+            this.cCompCode.HeaderText = "Код";
+            this.cCompCode.Name = "cCompCode";
+            // 
+            // cCompName
+            // 
+            this.cCompName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cCompName.HeaderText = "Наименование";
+            this.cCompName.Name = "cCompName";
+            this.cCompName.Width = 108;
+            // 
             // FormCompetence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,9 +105,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewCompetence;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCompCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCompName;
         private System.Windows.Forms.Button bCompetenceSave;
         private System.Windows.Forms.Button bCompetenceCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCompCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCompName;
     }
 }

@@ -25,8 +25,11 @@ namespace vcz.StudentDesktopWF
 //            Object[] arr = competenceList.ToArray();
             foreach(String item in competenceList)
             {
+                if (res.Length != 0)
+                {
+                    res += ",";
+                }
                 res += item;
-                res += ",";
             }
             return res;
         }
@@ -38,7 +41,10 @@ namespace vcz.StudentDesktopWF
             {
                 foreach(String item in list.Split(','))
                 {
-                    competences.Add(item);
+                    if (item != null) 
+                    { 
+                        competences.Add(item);
+                    }
                 }
             }
             this.competenceList = competences;
@@ -108,7 +114,18 @@ namespace vcz.StudentDesktopWF
                     xmlWriter.WriteElementString("FirstName", item.FirstName);
                     xmlWriter.WriteElementString("Birthday", item.Birthday.ToString());
                     xmlWriter.WriteElementString("Department", item.Department);
-                    xmlWriter.WriteElementString("Competences", item.GetCompetenceList());
+                    //перебираем компетенции и сохраняем их код у Person
+                    xmlWriter.WriteStartElement("Competences");
+                    foreach(String comp in item.GetCompetenceList().Split(','))
+                    {
+                        if (comp.Length != 0) 
+                        {
+                            xmlWriter.WriteElementString("Code", comp); 
+                        }
+                        
+                    }
+                    xmlWriter.WriteEndElement();
+                    //xmlWriter.WriteElementString("Competences", item.GetCompetenceList());
                     xmlWriter.WriteEndElement();
 
                     //        sw.Write(item.LastName);
@@ -165,9 +182,17 @@ namespace vcz.StudentDesktopWF
                     {
                         person.Department = childNote.InnerText;
                     }
+                    //обходим все дочерние узлы элемента Competences
                     if (childNote.Name == "Competences")
                     {
-                        person.SetCompetenceList(childNote.InnerText);
+                        //person.SetCompetenceList(childNote.InnerText);
+                        foreach(XmlNode compNode in childNote.ChildNodes)
+                        {
+                            if(compNode.Name == "Code")
+                            {
+                                person.CompetenceList.Add(compNode.InnerText);
+                            }
+                        }
                     }
                 }
                 arr.Add(person);
