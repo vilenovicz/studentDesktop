@@ -64,20 +64,47 @@ namespace vcz.StudentDesktopWF
         {
             ArrayList arr = new ArrayList();
 
-            string filename = "comp.csv";
-            StreamReader sr = File.OpenText(filename);
-            while (!sr.EndOfStream)
+            //string filename = "comp.csv";
+            string filename = "comp.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filename);
+
+            //получим root-Документ
+            XmlElement root = doc.DocumentElement;
+
+            //обойдем все документы в root
+            foreach (XmlNode node in root)
             {
-                String[] fields = sr.ReadLine().Split('|');
-                if (fields.Length >= 2)
+                Competence comp = new Competence();
+                //обходим все дочерние узлы элемента Competence
+                foreach (XmlNode childNote in node.ChildNodes)
                 {
-                    Competence comp = new Competence();
-                    comp.Code = fields[0];
-                    comp.Name = fields[1];
-                    arr.Add(comp);
+                    if (childNote.Name == "Code")
+                    {
+                        comp.Code = childNote.InnerText;
+                    }
+                    if (childNote.Name == "Name")
+                    {
+                        comp.Name = childNote.InnerText;
+                    }
                 }
+                arr.Add(comp);
             }
-            sr.Close();
+
+
+            //StreamReader sr = File.OpenText(filename);
+            //while (!sr.EndOfStream)
+            //{
+            //    String[] fields = sr.ReadLine().Split('|');
+            //    if (fields.Length >= 2)
+            //    {
+            //        Competence comp = new Competence();
+            //        comp.Code = fields[0];
+            //        comp.Name = fields[1];
+            //        arr.Add(comp);
+            //    }
+            //}
+            //sr.Close();
             return arr;
         }
     }
