@@ -53,6 +53,7 @@ namespace vcz.StudentDesktopWF
             }
             Competence.SaveToFile(compList);
             _ = MessageBox.Show("Данные сохранены");
+            this.Close();
         }
 
         private void bCompetenceCancel_Click(object sender, EventArgs e)
