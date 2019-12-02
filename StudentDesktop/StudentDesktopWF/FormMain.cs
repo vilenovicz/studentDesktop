@@ -23,10 +23,6 @@ namespace vcz.StudentDesktopWF
 
         }
 
-        private void dataGridViewPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -82,12 +78,39 @@ namespace vcz.StudentDesktopWF
         private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCompetence form = new FormCompetence();
+            form.Text = "Справочник компетенций";
             form.Show();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dataGridViewPersons_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                //_ = MessageBox.Show("Competences");
+                FormCompetence formCompetence = new FormCompetence();
+                formCompetence.Text = "Выберите одну или несколько компетенций для добавления сотруднику";
+                
+                //установим владельца создаваемой формы
+                //formCompetence.Owner = this;
+                formCompetence.ShowDialog();
+
+                if (DataExchange.Data.Length >0)
+                {
+                    if (this.dataGridViewPersons.SelectedCells[0].Value.ToString().Length > 0)
+                    {
+                        this.dataGridViewPersons.SelectedCells[0].Value += ",";
+                    }
+                    this.dataGridViewPersons.SelectedCells[0].Value += DataExchange.Data;
+
+                    DataExchange.Data = "";
+                    this.dataGridViewPersons.Refresh();
+                }
+            }
         }
     }
 }

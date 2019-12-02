@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Competence.cs" />
+    <Compile Include="DataExchange.cs" />
     <Compile Include="FormCompetence.cs">
       <SubType>Form</SubType>
     </Compile>

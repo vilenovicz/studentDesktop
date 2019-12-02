@@ -53,12 +53,31 @@ namespace vcz.StudentDesktopWF
             }
             Competence.SaveToFile(compList);
             _ = MessageBox.Show("Данные сохранены");
-            this.Close();
+            this.Dispose();
         }
 
         private void bCompetenceCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
+        }
+
+        private void bSaveChoosen_Click(object sender, EventArgs e)
+        {
+            String compCode = "";
+            foreach(DataGridViewRow row in dataGridViewCompetence.SelectedRows)
+            {
+                if (compCode != "")
+                {
+                    compCode += ", ";
+                }
+                compCode += row.Cells[0].Value;
+            }
+
+            DataExchange.Data = compCode;
+            this.Dispose();
+
+            //dataGridViewPerson
+            //dataGridViewCompetence.SelectedRows
         }
     }
 }

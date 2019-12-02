@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridViewCompetence = new System.Windows.Forms.DataGridView();
-            this.bCompetenceSave = new System.Windows.Forms.Button();
-            this.bCompetenceCancel = new System.Windows.Forms.Button();
             this.cCompCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCompName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bCompetenceSave = new System.Windows.Forms.Button();
+            this.bCompetenceCancel = new System.Windows.Forms.Button();
+            this.bSaveChoosen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompetence)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +53,26 @@
             this.dataGridViewCompetence.TabIndex = 2;
             this.dataGridViewCompetence.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCompet_CellContentClick);
             // 
+            // cCompCode
+            // 
+            this.cCompCode.HeaderText = "Код";
+            this.cCompCode.Name = "cCompCode";
+            // 
+            // cCompName
+            // 
+            this.cCompName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cCompName.HeaderText = "Наименование";
+            this.cCompName.Name = "cCompName";
+            this.cCompName.Width = 108;
+            // 
             // bCompetenceSave
             // 
             this.bCompetenceSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bCompetenceSave.Location = new System.Drawing.Point(629, 461);
+            this.bCompetenceSave.Location = new System.Drawing.Point(12, 461);
             this.bCompetenceSave.Name = "bCompetenceSave";
-            this.bCompetenceSave.Size = new System.Drawing.Size(75, 23);
+            this.bCompetenceSave.Size = new System.Drawing.Size(160, 23);
             this.bCompetenceSave.TabIndex = 3;
-            this.bCompetenceSave.Text = "Сохранить";
+            this.bCompetenceSave.Text = "Сохранить справочник";
             this.bCompetenceSave.UseVisualStyleBackColor = true;
             this.bCompetenceSave.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -74,23 +87,22 @@
             this.bCompetenceCancel.UseVisualStyleBackColor = true;
             this.bCompetenceCancel.Click += new System.EventHandler(this.bCompetenceCancel_Click);
             // 
-            // cCompCode
+            // bSaveChoosen
             // 
-            this.cCompCode.HeaderText = "Код";
-            this.cCompCode.Name = "cCompCode";
-            // 
-            // cCompName
-            // 
-            this.cCompName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cCompName.HeaderText = "Наименование";
-            this.cCompName.Name = "cCompName";
-            this.cCompName.Width = 108;
+            this.bSaveChoosen.Location = new System.Drawing.Point(570, 461);
+            this.bSaveChoosen.Name = "bSaveChoosen";
+            this.bSaveChoosen.Size = new System.Drawing.Size(134, 23);
+            this.bSaveChoosen.TabIndex = 5;
+            this.bSaveChoosen.Text = "Сохранить выбранное";
+            this.bSaveChoosen.UseVisualStyleBackColor = true;
+            this.bSaveChoosen.Click += new System.EventHandler(this.bSaveChoosen_Click);
             // 
             // FormCompetence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 493);
+            this.Controls.Add(this.bSaveChoosen);
             this.Controls.Add(this.bCompetenceCancel);
             this.Controls.Add(this.bCompetenceSave);
             this.Controls.Add(this.dataGridViewCompetence);
@@ -109,5 +121,6 @@
         private System.Windows.Forms.Button bCompetenceCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCompCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCompName;
+        private System.Windows.Forms.Button bSaveChoosen;
     }
 }
