@@ -101,19 +101,34 @@ namespace vcz.StudentDesktopWF
             Application.Exit();
         }
 
-        private void dataGridViewPersons_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            saveFileDialog.ShowDialog();
+            DataExchange.FileName = saveFileDialog.FileName;
+            statusFilename.Text = saveFileDialog.FileName;
+            saveToolStripMenuItem_Click(sender, e);
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridViewPersons.Rows.Clear();
+            statusFilename.Text = "Нет открытого файла";
+        }
+
+        private void dataGridViewPersons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewPersons.Rows.Count-1 > 0 && e.ColumnIndex == 4)
             {
                 //_ = MessageBox.Show("Competences");
                 FormCompetence formCompetence = new FormCompetence();
                 formCompetence.Text = "Выберите одну или несколько компетенций для добавления сотруднику";
-                
+
                 //установим владельца создаваемой формы
                 //formCompetence.Owner = this;
                 formCompetence.ShowDialog();
 
-                if (DataExchange.Data.Length >0)
+                if (DataExchange.Data.Length > 0)
                 {
                     if (this.dataGridViewPersons.SelectedCells[0].Value.ToString().Length > 0)
                     {
@@ -126,15 +141,5 @@ namespace vcz.StudentDesktopWF
                 }
             }
         }
-
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            saveFileDialog.ShowDialog();
-            DataExchange.FileName = saveFileDialog.FileName;
-            statusFilename.Text = saveFileDialog.FileName;
-            saveToolStripMenuItem_Click(sender, e);
-        }
-
-
     }
 }
