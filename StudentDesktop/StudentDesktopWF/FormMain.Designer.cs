@@ -58,10 +58,13 @@
             this.cBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDepartment = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Компетенции = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.statusFilename = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).BeginInit();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -312,15 +315,38 @@
             this.Компетенции.Name = "Компетенции";
             this.Компетенции.Width = 103;
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog";
+            this.openFileDialog.DefaultExt = "xml";
+            this.openFileDialog.FileName = "openFileDialog";
+            this.openFileDialog.Filter = "XML files|*.xml";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "xml";
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusFilename});
+            this.statusStrip.Location = new System.Drawing.Point(0, 403);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(882, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // statusFilename
+            // 
+            this.statusFilename.Name = "statusFilename";
+            this.statusFilename.Size = new System.Drawing.Size(126, 17);
+            this.statusFilename.Text = "Нет открытого файла";
             // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 425);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStripMain);
             this.Controls.Add(this.dataGridViewPersons);
             this.MainMenuStrip = this.menuStripMain;
@@ -330,6 +356,8 @@
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).EndInit();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,8 +394,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cBirthday;
         private System.Windows.Forms.DataGridViewComboBoxColumn cDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Компетенции;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel statusFilename;
     }
 }
 

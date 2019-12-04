@@ -88,7 +88,7 @@ namespace vcz.StudentDesktopWF
             return this.LastName + " " + this.FirstName;
         }
 
-        public static void SaveToFile(ArrayList arr)
+        public static void SaveToFile(ArrayList arr, string filename)
         {
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
@@ -97,7 +97,7 @@ namespace vcz.StudentDesktopWF
 
             //string filename = "persons.csv";
             //string filename = "persons.xml";
-            string filename = DataExchange.FileName;
+            //string filename = DataExchange.FileName;
             XmlWriter xmlWriter = XmlWriter.Create(filename,settings);
             //xmlWriter.R
             //пишем заголовок и корень документа
@@ -149,12 +149,12 @@ namespace vcz.StudentDesktopWF
 
         }
 
-    public static ArrayList LoadFromFile()
+    public static ArrayList LoadFromFile(string filename)
         {
             ArrayList arr = new ArrayList();
 
             //string filename = "persons.csv";
-            string filename = "persons.xml";
+            //string filename = "persons.xml";
             XmlDocument doc = new XmlDocument();
             doc.Load(filename);
 

@@ -44,7 +44,7 @@ namespace vcz.StudentDesktopWF
                         //                    MessageBox.Show(person.LastName);
                     }
                 }
-                Person.SaveToFile(personList);
+                Person.SaveToFile(personList, statusFilename.Text);
                 _ = MessageBox.Show("Данные сохранены");
             }
             else
@@ -56,31 +56,37 @@ namespace vcz.StudentDesktopWF
 
         private void formMain_Load(object sender, EventArgs e)
         {
+            #region rem 4 hardcode
             //Загрузка в grid данных о персонале
 
             //пока грузим только hardcoded
-            Person ivan = new Person("Иванов", "Иван");
-            Person vasy = new Person("Васильев", "Вася");
+            //Person ivan = new Person("Иванов", "Иван");
+            //Person vasy = new Person("Васильев", "Вася");
 
             //dataGridViewPersons.Rows.Add(ivan.LastName,ivan.FirstName);
             //dataGridViewPersons.Rows.Add(vasy.LastName, vasy.FirstName);
-
+            #endregion rem 4 hardcode
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ArrayList personList = Person.LoadFromFile();
-            foreach (Person person in personList)
+            if(openFileDialog.ShowDialog().ToString() != "Cancel")
             {
-                dataGridViewPersons.Rows.Add(
-                    person.LastName,
-                    person.FirstName,
-                    person.Birthday,
-                    person.Department,
-                    person.GetCompetenceList()
-                    ); 
+                ArrayList personList = Person.LoadFromFile(openFileDialog.FileName);
+                statusFilename.Text = openFileDialog.FileName;
+                DataExchange.FileName = openFileDialog.FileName;
+                foreach (Person person in personList)
+                {
+                    dataGridViewPersons.Rows.Add(
+                        person.LastName,
+                        person.FirstName,
+                        person.Birthday,
+                        person.Department,
+                        person.GetCompetenceList()
+                        );
+                }
+                dataGridViewPersons.Refresh();
             }
-            dataGridViewPersons.Refresh();
         }
 
         private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,7 +131,10 @@ namespace vcz.StudentDesktopWF
         {
             saveFileDialog.ShowDialog();
             DataExchange.FileName = saveFileDialog.FileName;
+            statusFilename.Text = saveFileDialog.FileName;
             saveToolStripMenuItem_Click(sender, e);
         }
+
+
     }
 }
