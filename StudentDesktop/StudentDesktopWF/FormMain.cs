@@ -28,22 +28,30 @@ namespace vcz.StudentDesktopWF
         {
             ArrayList personList = new ArrayList();
             DataGridViewRow row;
-            for (int i = 0; i < dataGridViewPersons.Rows.Count-1; i++)//  .SelectedRows)
+            if (dataGridViewPersons.Rows.Count - 1 > 0)
             {
-                row = dataGridViewPersons.Rows[i];
+                for (int i = 0; i < dataGridViewPersons.Rows.Count - 1; i++)//  .SelectedRows)
                 {
-                    Person person = new Person();
-                    person.LastName = row.Cells[0].Value.ToString();
-                    person.FirstName = row.Cells[1].Value.ToString();
-                    person.Birthday = Convert.ToDateTime(row.Cells[2].Value.ToString());
-                    person.Department = row.Cells[3].Value.ToString();
-                    person.SetCompetenceList(row.Cells[4].Value.ToString());
-                    personList.Add(person);
-//                    MessageBox.Show(person.LastName);
+                    row = dataGridViewPersons.Rows[i];
+                    {
+                        Person person = new Person();
+                        person.LastName = row.Cells[0].Value.ToString();
+                        person.FirstName = row.Cells[1].Value.ToString();
+                        person.Birthday = Convert.ToDateTime(row.Cells[2].Value.ToString());
+                        person.Department = row.Cells[3].Value.ToString();
+                        person.SetCompetenceList(row.Cells[4].Value.ToString());
+                        personList.Add(person);
+                        //                    MessageBox.Show(person.LastName);
+                    }
                 }
+                Person.SaveToFile(personList);
+                _ = MessageBox.Show("Данные сохранены");
             }
-            Person.SaveToFile(personList);
-            _ = MessageBox.Show("Данные сохранены");
+            else
+            {
+                _ = MessageBox.Show("Данных для сохранения нет");
+            }
+
         }
 
         private void formMain_Load(object sender, EventArgs e)
