@@ -94,9 +94,10 @@ namespace vcz.StudentDesktopWF
             settings.Indent = true;
             settings.IndentChars = "\t";
             //settings.Encoding = "utf-8";
-            
+
             //string filename = "persons.csv";
-            string filename = "persons.xml";
+            //string filename = "persons.xml";
+            string filename = DataExchange.FileName;
             XmlWriter xmlWriter = XmlWriter.Create(filename,settings);
             //xmlWriter.R
             //пишем заголовок и корень документа
@@ -144,6 +145,7 @@ namespace vcz.StudentDesktopWF
             //закрываем корень и сам документ
             xmlWriter.WriteEndElement();
             xmlWriter.Close();
+            DataExchange.FileName = "";
 
         }
 

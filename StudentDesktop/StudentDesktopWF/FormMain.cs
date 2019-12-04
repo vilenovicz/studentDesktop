@@ -120,5 +120,12 @@ namespace vcz.StudentDesktopWF
                 }
             }
         }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.ShowDialog();
+            DataExchange.FileName = saveFileDialog.FileName;
+            saveToolStripMenuItem_Click(sender, e);
+        }
     }
 }

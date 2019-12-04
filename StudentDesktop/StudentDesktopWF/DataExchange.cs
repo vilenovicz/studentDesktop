@@ -9,5 +9,6 @@ namespace vcz.StudentDesktopWF
     static class DataExchange
     {
         public static string Data { get; set; }
+        public static string FileName { get; set; }
     }
 }
