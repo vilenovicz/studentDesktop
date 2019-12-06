@@ -26,32 +26,6 @@ namespace vcz.StudentDesktopWF
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ArrayList personList = new ArrayList();
-            DataGridViewRow row;
-            if (dataGridViewPersons.Rows.Count - 1 > 0)
-            {
-                for (int i = 0; i < dataGridViewPersons.Rows.Count - 1; i++)//  .SelectedRows)
-                {
-                    row = dataGridViewPersons.Rows[i];
-                    {
-                        Person person = new Person();
-                        person.LastName = row.Cells[0].Value.ToString();
-                        person.FirstName = row.Cells[1].Value.ToString();
-                        person.Birthday = Convert.ToDateTime(row.Cells[2].Value.ToString());
-                        person.Department = row.Cells[3].Value.ToString();
-                        person.SetCompetenceList(row.Cells[4].Value.ToString());
-                        personList.Add(person);
-                        //                    MessageBox.Show(person.LastName);
-                    }
-                }
-                Person.SaveToFile(personList, statusFilename.Text);
-                _ = MessageBox.Show("Данные сохранены");
-            }
-            else
-            {
-                _ = MessageBox.Show("Данных для сохранения нет");
-            }
-
         }
 
         private void formMain_Load(object sender, EventArgs e)
@@ -70,23 +44,6 @@ namespace vcz.StudentDesktopWF
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(openFileDialog.ShowDialog().ToString() != "Cancel")
-            {
-                ArrayList personList = Person.LoadFromFile(openFileDialog.FileName);
-                statusFilename.Text = openFileDialog.FileName;
-                DataExchange.FileName = openFileDialog.FileName;
-                foreach (Person person in personList)
-                {
-                    dataGridViewPersons.Rows.Add(
-                        person.LastName,
-                        person.FirstName,
-                        person.Birthday,
-                        person.Department,
-                        person.GetCompetenceList()
-                        );
-                }
-                dataGridViewPersons.Refresh();
-            }
         }
 
         private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -140,6 +97,73 @@ namespace vcz.StudentDesktopWF
                     this.dataGridViewPersons.Refresh();
                 }
             }
+        }
+
+ 
+
+        private void вXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ArrayList personList = new ArrayList();
+            DataGridViewRow row;
+            if (dataGridViewPersons.Rows.Count - 1 > 0)
+            {
+                for (int i = 0; i < dataGridViewPersons.Rows.Count - 1; i++)//  .SelectedRows)
+                {
+                    row = dataGridViewPersons.Rows[i];
+                    {
+                        Person person = new Person();
+                        person.LastName = row.Cells[0].Value.ToString();
+                        person.FirstName = row.Cells[1].Value.ToString();
+                        person.Birthday = Convert.ToDateTime(row.Cells[2].Value.ToString());
+                        person.Department = row.Cells[3].Value.ToString();
+                        person.SetCompetenceList(row.Cells[4].Value.ToString());
+                        personList.Add(person);
+                        //                    MessageBox.Show(person.LastName);
+                    }
+                }
+                Person.SaveToFile(personList, statusFilename.Text);
+                _ = MessageBox.Show("Данные сохранены");
+            }
+            else
+            {
+                _ = MessageBox.Show("Данных для сохранения нет");
+            }
+
+
+        }
+
+        private void saveToDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadFromXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog().ToString() != "Cancel")
+            {
+                ArrayList personList = Person.LoadFromFile(openFileDialog.FileName);
+                statusFilename.Text = openFileDialog.FileName;
+                DataExchange.FileName = openFileDialog.FileName;
+                foreach (Person person in personList)
+                {
+                    dataGridViewPersons.Rows.Add(
+                        person.LastName,
+                        person.FirstName,
+                        person.Birthday,
+                        person.Department,
+                        person.GetCompetenceList()
+                        );
+                }
+                dataGridViewPersons.Refresh();
+            }
+
+        }
+
+        private void loadFromBDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DBManager dbManager = new DBManager();
+            dataGridViewPersons.AutoGenerateColumns = true;
+            dataGridViewPersons.DataSource = dbManager.ReadData();
         }
     }
 }
