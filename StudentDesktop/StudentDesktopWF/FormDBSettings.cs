@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentDesktopWF
+namespace vcz.StudentDesktopWF
 {
-    public partial class FormPerson : Form
+    public partial class FormDBSettings : Form
     {
-        public FormPerson()
+
+        public FormDBSettings()
         {
             InitializeComponent();
         }
+
+
     }
 }
