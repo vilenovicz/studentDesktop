@@ -56,11 +56,6 @@
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.базаДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewPersons = new System.Windows.Forms.DataGridView();
-            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDepartment = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cCompetences = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -295,53 +290,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPersons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cLastName,
-            this.cFirstName,
-            this.cBirthday,
-            this.cDepartment,
-            this.cCompetences});
             this.dataGridViewPersons.Location = new System.Drawing.Point(12, 49);
             this.dataGridViewPersons.Name = "dataGridViewPersons";
             this.dataGridViewPersons.Size = new System.Drawing.Size(858, 333);
             this.dataGridViewPersons.TabIndex = 1;
             this.dataGridViewPersons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPersons_CellDoubleClick);
-            // 
-            // cLastName
-            // 
-            this.cLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cLastName.HeaderText = "Фамилия";
-            this.cLastName.Name = "cLastName";
-            this.cLastName.Width = 81;
-            // 
-            // cFirstName
-            // 
-            this.cFirstName.HeaderText = "Имя";
-            this.cFirstName.Name = "cFirstName";
-            // 
-            // cBirthday
-            // 
-            this.cBirthday.HeaderText = "Дата рождения";
-            this.cBirthday.Name = "cBirthday";
-            // 
-            // cDepartment
-            // 
-            this.cDepartment.HeaderText = "Департамент";
-            this.cDepartment.Items.AddRange(new object[] {
-            "ДСИ",
-            "ДИТ",
-            "ДИТСО",
-            "КД",
-            "АУ"});
-            this.cDepartment.Name = "cDepartment";
-            this.cDepartment.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cDepartment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // cCompetences
-            // 
-            this.cCompetences.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cCompetences.HeaderText = "Компетенции";
-            this.cCompetences.Name = "cCompetences";
             // 
             // openFileDialog
             // 
@@ -418,11 +371,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusFilename;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cBirthday;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cDepartment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCompetences;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem базаДанныхToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFromXMLToolStripMenuItem;
