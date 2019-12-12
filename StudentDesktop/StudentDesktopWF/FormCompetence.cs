@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,9 @@ namespace StudentDesktopWF
 {
     public partial class FormCompetence : Form
     {
+        private BindingSource bindingSource = new BindingSource();
+        public int personId = 0;
+
         public FormCompetence()
         {
             InitializeComponent();
@@ -26,15 +30,43 @@ namespace StudentDesktopWF
 
         private void FormCompetence_Load(object sender, EventArgs e)
         {
-            ArrayList compList = Competence.LoadFromFile();
-            foreach (Competence comp in compList)
+            //ArrayList compList = Competence.LoadFromFile();
+            //foreach (Competence comp in compList)
+            //{
+            //    dataGridViewCompetence.Rows.Add(
+            //        comp.Code,
+            //        comp.Name
+            //        );
+            //}
+            //dataGridViewCompetence.Refresh();
+            //DBManager dbManager = new DBManager();
+            //dataGridViewPersons.AutoGenerateColumns = true;
+            //dataGridViewPersons.DataSource = dbManager.ReadData();
+
+            dataGridViewCompetence.DataSource = bindingSource;
+            const string sqlCompetences = @"select Id, Code, Name  from Competences";
+
+            try
             {
-                dataGridViewCompetence.Rows.Add(
-                    comp.Code,
-                    comp.Name
-                    );
+                SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+
+                DataSet data = new DataSet();
+                data.Locale = System.Globalization.CultureInfo.InvariantCulture;
+
+                //данные по Компетенциям в DataSet
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCompetences, connection);
+                dataAdapter.Fill(data, "Competences");
+
+                //Соединяем мастерДата с таблицей Persons
+                bindingSource.DataSource = data;
+                bindingSource.DataMember = "Competences";
+
+              
             }
-            dataGridViewCompetence.Refresh();
+            catch
+            {
+                MessageBox.Show("Не удалось считать данные компетенций");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,7 +84,7 @@ namespace StudentDesktopWF
                 }
             }
             Competence.SaveToFile(compList);
-            _ = MessageBox.Show("Данные сохранены");
+            _ = MessageBox.Show(Properties.Resources.dataSaved);
             this.Dispose();
         }
 
@@ -63,18 +95,47 @@ namespace StudentDesktopWF
 
         private void bSaveChoosen_Click(object sender, EventArgs e)
         {
-            String compCode = "";
-            foreach(DataGridViewRow row in dataGridViewCompetence.SelectedRows)
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+            
+            SqlCommand command = new SqlCommand("uspNewCompetence", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add(new SqlParameter("@PersonId", SqlDbType.Int));
+            command.Parameters.Add(new SqlParameter("@CompetenceId", SqlDbType.Int));
+
+            connection.Open();
+            try
             {
-                if (compCode != "")
+                //String compCode = "";
+
+                foreach (DataGridViewRow row in dataGridViewCompetence.SelectedRows)
                 {
-                    compCode += ", ";
+                    //if (compCode != "")
+                    //{
+                    //    compCode += ", ";
+                    //}
+                    //compCode += row.Cells[0].Value;
+
+                    //saving to DB
+                    command.Parameters["@PersonId"].Value = personId;
+                    command.Parameters["@CompetenceId"].Value = row.Cells["Id"].Value;
+
+                    command.ExecuteNonQuery();
+                    
                 }
-                compCode += row.Cells[0].Value;
+
+            }
+            catch
+            {
+                _ = MessageBox.Show("Сохранение компетенций не удалось");
+            }
+            finally
+            {
+                connection.Close();
             }
 
-            DataExchange.Data = compCode;
-            this.Dispose();
+            //DataExchange.Data = compCode;
+            this.Close();
 
             //dataGridViewPerson
             //dataGridViewCompetence.SelectedRows

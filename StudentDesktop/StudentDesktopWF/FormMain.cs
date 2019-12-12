@@ -79,28 +79,29 @@ namespace StudentDesktopWF
 
         private void dataGridViewPersons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewPersons.Rows.Count-1 > 0 && e.ColumnIndex == 4)
-            {
-                //_ = MessageBox.Show("Competences");
-                FormCompetence formCompetence = new FormCompetence();
-                formCompetence.Text = "Выберите одну или несколько компетенций для добавления сотруднику";
+            addCompetenceToolStripMenuItem_Click(sender, e);
+            //if (dataGridViewPersons.Rows.Count-1 > 0 && e.ColumnIndex == 4)
+            //{
+            //    //_ = MessageBox.Show("Competences");
+            //    FormCompetence formCompetence = new FormCompetence();
+            //    formCompetence.Text = "Выберите одну или несколько компетенций для добавления сотруднику";
 
-                //установим владельца создаваемой формы
-                //formCompetence.Owner = this;
-                formCompetence.ShowDialog();
+            //    //установим владельца создаваемой формы
+            //    //formCompetence.Owner = this;
+            //    formCompetence.ShowDialog();
 
-                if (DataExchange.Data.Length > 0)
-                {
-                    if (this.dataGridViewPersons.SelectedCells[0].Value.ToString().Length > 0)
-                    {
-                        this.dataGridViewPersons.SelectedCells[0].Value += ",";
-                    }
-                    this.dataGridViewPersons.SelectedCells[0].Value += DataExchange.Data;
+            //    //if (DataExchange.Data.Length > 0)
+            //    //{
+            //    //    if (this.dataGridViewPersons.SelectedCells[0].Value.ToString().Length > 0)
+            //    //    {
+            //    //        this.dataGridViewPersons.SelectedCells[0].Value += ",";
+            //    //    }
+            //    //    this.dataGridViewPersons.SelectedCells[0].Value += DataExchange.Data;
 
-                    DataExchange.Data = "";
-                    this.dataGridViewPersons.Refresh();
-                }
-            }
+            //    //    DataExchange.Data = "";
+            //    //    this.dataGridViewPersons.Refresh();
+            //    //}
+            //}
         }
 
  
@@ -126,11 +127,11 @@ namespace StudentDesktopWF
                     }
                 }
                 Person.SaveToFile(personList, statusFilename.Text);
-                _ = MessageBox.Show("Данные сохранены");
+                _ = MessageBox.Show(Properties.Resources.dataSaved);
             }
             else
             {
-                _ = MessageBox.Show("Данных для сохранения нет");
+                _ = MessageBox.Show(Properties.Resources.noData2Save);
             }
 
 
@@ -179,7 +180,7 @@ namespace StudentDesktopWF
                 d.name as Подразделение
                 from persons p inner join Departments d on p.departmentId = d.id";
 
-            const string sqlCompetences = @"select c.Code, c.Name, pc.PersonId from Competences c inner join person_competence pc on c.id = pc.CompetenceId";
+            const string sqlCompetences = @"select pc.PersonId, c.Code, c.Name  from Competences c inner join person_competence pc on c.id = pc.CompetenceId";
 
             try
             {
@@ -209,10 +210,11 @@ namespace StudentDesktopWF
                 //соединяем детейлДата с таблицей Competences
                 detailsBindingSource.DataSource = masterBindingSource;
                 detailsBindingSource.DataMember = "PersonsCompetences";
+
             }
             catch
             {
-                MessageBox.Show("Не удалось считать данные");
+                MessageBox.Show(Properties.Resources.dataNotLoaded);
             }
 
             #region oldCode
@@ -256,10 +258,13 @@ namespace StudentDesktopWF
             #endregion oldCode
         }
 
-        private void добавитьКомпетенциюToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addCompetenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPerson formPerson = new FormPerson();
-            formPerson.Show();
+            FormCompetence formCompetence = new FormCompetence();
+            formCompetence.personId = (int)dataGridViewPersons.SelectedRows[0].Cells[0].Value;
+            formCompetence.ShowDialog();
+            loadFromBDToolStripMenuItem_Click(sender, e);
+
         }
     }
 }
