@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -161,9 +162,42 @@ namespace vcz.StudentDesktopWF
 
         private void loadFromBDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DBManager dbManager = new DBManager();
-            dataGridViewPersons.AutoGenerateColumns = true;
-            dataGridViewPersons.DataSource = dbManager.ReadData();
+            //DBManager dbManager = new DBManager();
+            //dataGridViewPersons.AutoGenerateColumns = true;
+            //dataGridViewPersons.DataSource = dbManager.ReadData();
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
+            {
+                const string sql = @"select p.lastname as Фамилия, 
+                p.firstname as Имя, 
+                p.birthday as [Дата рождения], 
+                d.name as Подразделение,
+                dbo.ufnGetCompetenceList(p.id) as Компетенции
+                from persons p inner join Departments d on p.departmentId = d.id";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            DataTable table = new DataTable();
+                            table.Load(reader);
+                            this.dataGridViewPersons.DataSource = table;
+                            reader.Close();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Не могу соединиться с БД");
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+
+                }
+            }
         }
     }
 }
