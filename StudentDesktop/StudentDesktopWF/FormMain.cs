@@ -210,6 +210,7 @@ namespace StudentDesktopWF
                 //соединяем детейлДата с таблицей Competences
                 detailsBindingSource.DataSource = masterBindingSource;
                 detailsBindingSource.DataMember = "PersonsCompetences";
+                bnCompetence.BindingSource = detailsBindingSource;
 
             }
             catch
@@ -264,6 +265,11 @@ namespace StudentDesktopWF
             formCompetence.personId = (int)dataGridViewPersons.SelectedRows[0].Cells[0].Value;
             formCompetence.ShowDialog();
             loadFromBDToolStripMenuItem_Click(sender, e);
+
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
 
         }
     }
