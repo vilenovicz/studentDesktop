@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace vcz.StudentDesktopWF
+namespace StudentDesktopWF
 {
     public partial class formMain : Form
     {
@@ -165,15 +165,20 @@ namespace vcz.StudentDesktopWF
             //DBManager dbManager = new DBManager();
             //dataGridViewPersons.AutoGenerateColumns = true;
             //dataGridViewPersons.DataSource = dbManager.ReadData();
+            
+            
+            //чтение данных о Person и заполнение грида
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
             {
-                const string sql = @"select p.lastname as Фамилия, 
+                const string sql = @"select p.id as id, 
+                p.lastname as Фамилия, 
                 p.firstname as Имя, 
                 p.birthday as [Дата рождения], 
                 d.name as Подразделение,
                 dbo.ufnGetCompetenceList(p.id) as Компетенции
                 from persons p inner join Departments d on p.departmentId = d.id";
 
+                
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     try
@@ -184,6 +189,8 @@ namespace vcz.StudentDesktopWF
                             DataTable table = new DataTable();
                             table.Load(reader);
                             this.dataGridViewPersons.DataSource = table;
+                            this.dataGridViewPersons.Columns["id"].Visible = false;
+                            //this.dataGridViewPersons.Columns["Компетенции"].ReadOnly = false;
                             reader.Close();
                         }
                     }
@@ -198,6 +205,12 @@ namespace vcz.StudentDesktopWF
 
                 }
             }
+        }
+
+        private void добавитьКомпетенциюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPerson formPerson = new FormPerson();
+            formPerson.Show();
         }
     }
 }
