@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 
-namespace vcz.StudentDesktopWF
+namespace StudentDesktopWF
 {
     public class Person
     {

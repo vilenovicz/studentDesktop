@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace vcz.StudentDesktopWF
+namespace StudentDesktopWF
 {
     public partial class FormCompetence : Form
     {

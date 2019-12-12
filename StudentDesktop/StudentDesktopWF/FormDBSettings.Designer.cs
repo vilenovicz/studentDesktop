@@ -1,4 +1,4 @@
-﻿namespace vcz.StudentDesktopWF
+﻿namespace StudentDesktopWF
 {
     partial class FormDBSettings
     {

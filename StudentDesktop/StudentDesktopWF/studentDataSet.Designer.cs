@@ -2302,7 +2302,7 @@ namespace StudentDesktopWF.studentDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vcz.StudentDesktopWF.Properties.Settings.Default.connString;
+            this._connection.ConnectionString = global::StudentDesktopWF.Properties.Settings.Default.connString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2647,7 +2647,7 @@ SELECT Id, Code, Name FROM Departments WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vcz.StudentDesktopWF.Properties.Settings.Default.connString;
+            this._connection.ConnectionString = global::StudentDesktopWF.Properties.Settings.Default.connString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3004,7 +3004,7 @@ SELECT Id, PersonId, CompetenceId FROM person_competence WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vcz.StudentDesktopWF.Properties.Settings.Default.connString;
+            this._connection.ConnectionString = global::StudentDesktopWF.Properties.Settings.Default.connString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3330,7 +3330,7 @@ SELECT Id, LastName, FirstName, Birthday, DepartmentId FROM Persons WHERE (Id = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::vcz.StudentDesktopWF.Properties.Settings.Default.connString;
+            this._connection.ConnectionString = global::StudentDesktopWF.Properties.Settings.Default.connString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

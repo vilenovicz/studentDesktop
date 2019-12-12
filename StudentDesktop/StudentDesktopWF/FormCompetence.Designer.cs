@@ -1,4 +1,4 @@
-﻿namespace vcz.StudentDesktopWF
+﻿namespace StudentDesktopWF
 {
     partial class FormCompetence
     {
@@ -40,8 +40,8 @@
             // dataGridViewCompetence
             // 
             this.dataGridViewCompetence.AllowUserToDeleteRows = false;
-            this.dataGridViewCompetence.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridViewCompetence.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCompetence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCompetence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
