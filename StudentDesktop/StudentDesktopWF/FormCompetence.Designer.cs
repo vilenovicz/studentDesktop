@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridViewCompetence = new System.Windows.Forms.DataGridView();
-            this.cCompCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCompName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bCompetenceSave = new System.Windows.Forms.Button();
             this.bCompetenceCancel = new System.Windows.Forms.Button();
             this.bSaveChoosen = new System.Windows.Forms.Button();
@@ -40,30 +38,15 @@
             // dataGridViewCompetence
             // 
             this.dataGridViewCompetence.AllowUserToDeleteRows = false;
-            this.dataGridViewCompetence.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridViewCompetence.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCompetence.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCompetence.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cCompCode,
-            this.cCompName});
             this.dataGridViewCompetence.Location = new System.Drawing.Point(12, 30);
             this.dataGridViewCompetence.Name = "dataGridViewCompetence";
             this.dataGridViewCompetence.Size = new System.Drawing.Size(769, 422);
             this.dataGridViewCompetence.TabIndex = 2;
             this.dataGridViewCompetence.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCompet_CellContentClick);
-            // 
-            // cCompCode
-            // 
-            this.cCompCode.HeaderText = "Код";
-            this.cCompCode.Name = "cCompCode";
-            // 
-            // cCompName
-            // 
-            this.cCompName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cCompName.HeaderText = "Наименование";
-            this.cCompName.Name = "cCompName";
-            this.cCompName.Width = 108;
             // 
             // bCompetenceSave
             // 
@@ -119,8 +102,6 @@
         private System.Windows.Forms.DataGridView dataGridViewCompetence;
         private System.Windows.Forms.Button bCompetenceSave;
         private System.Windows.Forms.Button bCompetenceCancel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCompCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCompName;
         private System.Windows.Forms.Button bSaveChoosen;
     }
 }

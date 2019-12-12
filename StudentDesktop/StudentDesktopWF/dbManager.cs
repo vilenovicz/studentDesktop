@@ -46,7 +46,7 @@ namespace StudentDesktopWF
             }
             catch
             {
-                MessageBox.Show("Не могу соединиться с БД");
+                MessageBox.Show(Properties.Resources.dbIsNotAccessable);
             }
             finally
             {
