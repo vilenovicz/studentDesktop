@@ -51,20 +51,24 @@
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьКомпетенциюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCompetenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.базаДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewPersons = new System.Windows.Forms.DataGridView();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusFilename = new System.Windows.Forms.ToolStripStatusLabel();
+            this.gbPersons = new System.Windows.Forms.GroupBox();
+            this.dataGridViewPersons = new System.Windows.Forms.DataGridView();
+            this.gpCompetences = new System.Windows.Forms.GroupBox();
             this.dgvCompetences = new System.Windows.Forms.DataGridView();
             this.menuStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).BeginInit();
             this.statusStrip.SuspendLayout();
+            this.gbPersons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).BeginInit();
+            this.gpCompetences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +105,7 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -114,28 +118,28 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // loadFromXMLToolStripMenuItem
             // 
             this.loadFromXMLToolStripMenuItem.Name = "loadFromXMLToolStripMenuItem";
-            this.loadFromXMLToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.loadFromXMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadFromXMLToolStripMenuItem.Text = "Из XML";
             this.loadFromXMLToolStripMenuItem.Click += new System.EventHandler(this.loadFromXMLToolStripMenuItem_Click);
             // 
             // loadFromBDToolStripMenuItem
             // 
             this.loadFromBDToolStripMenuItem.Name = "loadFromBDToolStripMenuItem";
-            this.loadFromBDToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.loadFromBDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadFromBDToolStripMenuItem.Text = "Из БД";
             this.loadFromBDToolStripMenuItem.Click += new System.EventHandler(this.loadFromBDToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -146,7 +150,7 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -167,19 +171,19 @@
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -194,7 +198,7 @@
             this.pasteToolStripMenuItem,
             this.toolStripSeparator4,
             this.selectAllToolStripMenuItem,
-            this.добавитьКомпетенциюToolStripMenuItem});
+            this.addCompetenceToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.editToolStripMenuItem.Text = "&Редактирование";
@@ -256,12 +260,12 @@
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
-            // добавитьКомпетенциюToolStripMenuItem
+            // addCompetenceToolStripMenuItem
             // 
-            this.добавитьКомпетенциюToolStripMenuItem.Name = "добавитьКомпетенциюToolStripMenuItem";
-            this.добавитьКомпетенциюToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.добавитьКомпетенциюToolStripMenuItem.Text = "Добавить компетенцию";
-            this.добавитьКомпетенциюToolStripMenuItem.Click += new System.EventHandler(this.добавитьКомпетенциюToolStripMenuItem_Click);
+            this.addCompetenceToolStripMenuItem.Name = "addCompetenceToolStripMenuItem";
+            this.addCompetenceToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.addCompetenceToolStripMenuItem.Text = "Добавить компетенцию";
+            this.addCompetenceToolStripMenuItem.Click += new System.EventHandler(this.добавитьКомпетенциюToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -293,19 +297,6 @@
             this.базаДанныхToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.базаДанныхToolStripMenuItem.Text = "База данных";
             // 
-            // dataGridViewPersons
-            // 
-            this.dataGridViewPersons.AllowUserToDeleteRows = false;
-            this.dataGridViewPersons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPersons.Location = new System.Drawing.Point(12, 49);
-            this.dataGridViewPersons.Name = "dataGridViewPersons";
-            this.dataGridViewPersons.Size = new System.Drawing.Size(858, 184);
-            this.dataGridViewPersons.TabIndex = 1;
-            this.dataGridViewPersons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPersons_CellDoubleClick);
-            // 
             // openFileDialog
             // 
             this.openFileDialog.DefaultExt = "xml";
@@ -332,36 +323,72 @@
             this.statusFilename.Size = new System.Drawing.Size(126, 17);
             this.statusFilename.Text = "Нет открытого файла";
             // 
+            // gbPersons
+            // 
+            this.gbPersons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbPersons.Controls.Add(this.dataGridViewPersons);
+            this.gbPersons.Location = new System.Drawing.Point(12, 39);
+            this.gbPersons.Name = "gbPersons";
+            this.gbPersons.Size = new System.Drawing.Size(858, 194);
+            this.gbPersons.TabIndex = 4;
+            this.gbPersons.TabStop = false;
+            this.gbPersons.Text = "Сотрудники";
+            // 
+            // dataGridViewPersons
+            // 
+            this.dataGridViewPersons.AllowUserToDeleteRows = false;
+            this.dataGridViewPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPersons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPersons.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewPersons.Name = "dataGridViewPersons";
+            this.dataGridViewPersons.Size = new System.Drawing.Size(852, 175);
+            this.dataGridViewPersons.TabIndex = 2;
+            // 
+            // gpCompetences
+            // 
+            this.gpCompetences.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpCompetences.Controls.Add(this.dgvCompetences);
+            this.gpCompetences.Location = new System.Drawing.Point(15, 239);
+            this.gpCompetences.Name = "gpCompetences";
+            this.gpCompetences.Size = new System.Drawing.Size(858, 161);
+            this.gpCompetences.TabIndex = 5;
+            this.gpCompetences.TabStop = false;
+            this.gpCompetences.Text = "Компетенции";
+            // 
             // dgvCompetences
             // 
             this.dgvCompetences.AllowUserToDeleteRows = false;
-            this.dgvCompetences.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCompetences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompetences.Location = new System.Drawing.Point(12, 239);
+            this.dgvCompetences.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCompetences.Location = new System.Drawing.Point(3, 16);
             this.dgvCompetences.Name = "dgvCompetences";
-            this.dgvCompetences.Size = new System.Drawing.Size(858, 152);
-            this.dgvCompetences.TabIndex = 3;
+            this.dgvCompetences.Size = new System.Drawing.Size(852, 142);
+            this.dgvCompetences.TabIndex = 4;
             // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 425);
-            this.Controls.Add(this.dgvCompetences);
+            this.Controls.Add(this.gpCompetences);
+            this.Controls.Add(this.gbPersons);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStripMain);
-            this.Controls.Add(this.dataGridViewPersons);
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "formMain";
             this.Text = "Учет компетенций сотрудников";
             this.Load += new System.EventHandler(this.formMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.gbPersons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).EndInit();
+            this.gpCompetences.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -390,7 +417,6 @@
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridViewPersons;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.StatusStrip statusStrip;
@@ -401,8 +427,11 @@
         private System.Windows.Forms.ToolStripMenuItem loadFromBDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToXMLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToDBToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem добавитьКомпетенциюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addCompetenceToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gbPersons;
+        private System.Windows.Forms.GroupBox gpCompetences;
         private System.Windows.Forms.DataGridView dgvCompetences;
+        private System.Windows.Forms.DataGridView dataGridViewPersons;
     }
 }
 

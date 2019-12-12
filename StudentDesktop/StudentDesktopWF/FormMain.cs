@@ -14,6 +14,9 @@ namespace StudentDesktopWF
 {
     public partial class formMain : Form
     {
+        private BindingSource masterBindingSource = new BindingSource();
+        private BindingSource detailsBindingSource = new BindingSource();
+
         public formMain()
         {
             InitializeComponent();
@@ -165,46 +168,92 @@ namespace StudentDesktopWF
             //DBManager dbManager = new DBManager();
             //dataGridViewPersons.AutoGenerateColumns = true;
             //dataGridViewPersons.DataSource = dbManager.ReadData();
-            
-            
-            //чтение данных о Person и заполнение грида
-            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
-            {
-                const string sql = @"select p.id as id, 
+
+            dataGridViewPersons.DataSource = masterBindingSource;
+            dgvCompetences.DataSource = detailsBindingSource;
+
+            const string sqlPersons = @"select p.id as id, 
                 p.lastname as Фамилия, 
                 p.firstname as Имя, 
                 p.birthday as [Дата рождения], 
-                d.name as Подразделение,
-                dbo.ufnGetCompetenceList(p.id) as Компетенции
+                d.name as Подразделение
                 from persons p inner join Departments d on p.departmentId = d.id";
 
-                
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            DataTable table = new DataTable();
-                            table.Load(reader);
-                            this.dataGridViewPersons.DataSource = table;
-                            this.dataGridViewPersons.Columns["id"].Visible = false;
-                            //this.dataGridViewPersons.Columns["Компетенции"].ReadOnly = false;
-                            reader.Close();
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Не могу соединиться с БД");
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
+            const string sqlCompetences = @"select c.Code, c.Name, pc.PersonId from Competences c inner join person_competence pc on c.id = pc.CompetenceId";
 
-                }
+            try
+            {
+                SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+
+                DataSet data = new DataSet();
+                data.Locale = System.Globalization.CultureInfo.InvariantCulture;
+
+                //данные из таблицы Person в DataSet
+                SqlDataAdapter masterDataAdapter = new SqlDataAdapter(sqlPersons, connection);
+                masterDataAdapter.Fill(data, "Persons");
+
+                //данные по Компетенциям в DataSet
+                SqlDataAdapter detailDataAdapter = new SqlDataAdapter(sqlCompetences, connection);
+                detailDataAdapter.Fill(data, "Competences");
+
+                //Отношения между двумя таблицами
+                DataRelation relation = new DataRelation("PersonsCompetences",
+                    data.Tables["Persons"].Columns["Id"],
+                    data.Tables["Competences"].Columns["PersonId"]);
+                data.Relations.Add(relation);
+
+                //Соединяем мастерДата с таблицей Persons
+                masterBindingSource.DataSource = data;
+                masterBindingSource.DataMember = "Persons";
+
+                //соединяем детейлДата с таблицей Competences
+                detailsBindingSource.DataSource = masterBindingSource;
+                detailsBindingSource.DataMember = "PersonsCompetences";
             }
+            catch
+            {
+                MessageBox.Show("Не удалось считать данные");
+            }
+
+            #region oldCode
+            //чтение данных о Person и заполнение грида
+            //using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
+            //{
+            //    const string sql = @"select p.id as id, 
+            //    p.lastname as Фамилия, 
+            //    p.firstname as Имя, 
+            //    p.birthday as [Дата рождения], 
+            //    d.name as Подразделение,
+            //    dbo.ufnGetCompetenceList(p.id) as Компетенции
+            //    from persons p inner join Departments d on p.departmentId = d.id";
+
+
+            //    using (SqlCommand command = new SqlCommand(sql, connection))
+            //    {
+            //        try
+            //        {
+            //            connection.Open();
+            //            using (SqlDataReader reader = command.ExecuteReader())
+            //            {
+            //                DataTable table = new DataTable();
+            //                table.Load(reader);
+            //                this.dataGridViewPersons.DataSource = table;
+            //                this.dataGridViewPersons.Columns["id"].Visible = false;
+            //                //this.dataGridViewPersons.Columns["Компетенции"].ReadOnly = false;
+            //                reader.Close();
+            //            }
+            //        }
+            //        catch
+            //        {
+            //            MessageBox.Showc
+            //        finally
+            //        {
+            //            connection.Close();
+            //        }
+
+            //    }
+            //}
+            #endregion oldCode
         }
 
         private void добавитьКомпетенциюToolStripMenuItem_Click(object sender, EventArgs e)
