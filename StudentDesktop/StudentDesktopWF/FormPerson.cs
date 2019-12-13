@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,6 @@ namespace StudentDesktopWF
         private void personsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.personsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.studentDataSet);
 
         }
 
@@ -36,28 +35,50 @@ namespace StudentDesktopWF
 
         }
 
-        private void personsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.personsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.studentDataSet);
 
+        private void btnSavePerson_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+
+            SqlCommand command = new SqlCommand("uspNewPerson", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add(new SqlParameter("@LastName", SqlDbType.NVarChar,50));
+            command.Parameters.Add(new SqlParameter("@FirstName", SqlDbType.NVarChar,50));
+            command.Parameters.Add(new SqlParameter("@Birthday", SqlDbType.DateTime));
+            command.Parameters.Add(new SqlParameter("@DepartmentId", SqlDbType.Int));
+
+            connection.Open();
+            try
+            {
+                //String compCode = "";
+
+
+                //saving to DB
+                command.Parameters["@LastName"].Value = lastNameTextBox.Text;
+                command.Parameters["@FirstName"].Value = firstNameTextBox.Text;
+                command.Parameters["@Birthday"].Value = birthdayDateTimePicker.Value;
+                command.Parameters["@DepartmentId"].Value = departmentIdComboBox.SelectedValue;
+
+                command.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                _ = MessageBox.Show("Сохранение сотрудника не удалось");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            //DataExchange.Data = compCode;
+            this.Close();
         }
 
-        private void personsBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        private void btnCancelPerson_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.personsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.studentDataSet);
-
-        }
-
-        private void personsBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.personsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.studentDataSet);
-
+            this.Close();
         }
     }
 }

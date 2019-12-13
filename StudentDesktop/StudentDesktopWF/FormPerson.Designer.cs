@@ -38,7 +38,6 @@
             this.btnCancelPerson = new System.Windows.Forms.Button();
             this.btnSavePerson = new System.Windows.Forms.Button();
             this.studentDataSet = new StudentDesktopWF.studentDataSet();
-            this.personsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personsTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.PersonsTableAdapter();
             this.tableAdapterManager = new StudentDesktopWF.studentDataSetTableAdapters.TableAdapterManager();
             this.idTextBox = new System.Windows.Forms.TextBox();
@@ -55,7 +54,6 @@
             departmentIdLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +85,7 @@
             this.btnCancelPerson.TabIndex = 12;
             this.btnCancelPerson.Text = "Отменить";
             this.btnCancelPerson.UseVisualStyleBackColor = true;
+            this.btnCancelPerson.Click += new System.EventHandler(this.btnCancelPerson_Click);
             // 
             // btnSavePerson
             // 
@@ -97,16 +96,12 @@
             this.btnSavePerson.TabIndex = 13;
             this.btnSavePerson.Text = "Сохранить";
             this.btnSavePerson.UseVisualStyleBackColor = true;
+            this.btnSavePerson.Click += new System.EventHandler(this.btnSavePerson_Click);
             // 
             // studentDataSet
             // 
             this.studentDataSet.DataSetName = "studentDataSet";
             this.studentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // personsBindingSource
-            // 
-            this.personsBindingSource.DataMember = "Persons";
-            this.personsBindingSource.DataSource = this.studentDataSet;
             // 
             // personsTableAdapter
             // 
@@ -134,7 +129,6 @@
             // 
             // idTextBox
             // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsBindingSource, "Id", true));
             this.idTextBox.Location = new System.Drawing.Point(99, 38);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(200, 20);
@@ -151,7 +145,6 @@
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsBindingSource, "LastName", true));
             this.lastNameTextBox.Location = new System.Drawing.Point(99, 64);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
@@ -168,7 +161,6 @@
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsBindingSource, "FirstName", true));
             this.firstNameTextBox.Location = new System.Drawing.Point(99, 90);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
@@ -185,7 +177,6 @@
             // 
             // birthdayDateTimePicker
             // 
-            this.birthdayDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.personsBindingSource, "Birthday", true));
             this.birthdayDateTimePicker.Location = new System.Drawing.Point(99, 116);
             this.birthdayDateTimePicker.Name = "birthdayDateTimePicker";
             this.birthdayDateTimePicker.Size = new System.Drawing.Size(200, 20);
@@ -202,7 +193,6 @@
             // 
             // departmentIdComboBox
             // 
-            this.departmentIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.personsBindingSource, "DepartmentId", true));
             this.departmentIdComboBox.DataSource = this.departmentsBindingSource;
             this.departmentIdComboBox.DisplayMember = "Code";
             this.departmentIdComboBox.FormattingEnabled = true;
@@ -235,7 +225,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -246,7 +235,6 @@
         private System.Windows.Forms.Button btnCancelPerson;
         private System.Windows.Forms.Button btnSavePerson;
         private studentDataSet studentDataSet;
-        private System.Windows.Forms.BindingSource personsBindingSource;
         private studentDataSetTableAdapters.PersonsTableAdapter personsTableAdapter;
         private studentDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox idTextBox;
