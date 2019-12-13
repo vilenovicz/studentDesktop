@@ -55,6 +55,7 @@
             this.addCompetenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.департаментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.базаДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,30 +64,29 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusFilename = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbPersons = new System.Windows.Forms.GroupBox();
-            this.dataGridViewPersons = new System.Windows.Forms.DataGridView();
             this.gpCompetences = new System.Windows.Forms.GroupBox();
+            this.dgvPersons = new System.Windows.Forms.DataGridView();
+            this.dgvCompetences = new System.Windows.Forms.DataGridView();
             this.bnCompetence = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgvCompetences = new System.Windows.Forms.DataGridView();
-            this.департаментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.menuStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.gbPersons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).BeginInit();
             this.gpCompetences.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnCompetence)).BeginInit();
             this.bnCompetence.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -302,6 +302,13 @@
             this.customizeToolStripMenuItem.Text = "&Компетенции";
             this.customizeToolStripMenuItem.Click += new System.EventHandler(this.customizeToolStripMenuItem_Click);
             // 
+            // департаментыToolStripMenuItem
+            // 
+            this.департаментыToolStripMenuItem.Name = "департаментыToolStripMenuItem";
+            this.департаментыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.департаментыToolStripMenuItem.Text = "Департаменты";
+            this.департаментыToolStripMenuItem.Click += new System.EventHandler(this.департаментыToolStripMenuItem_Click);
+            // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
@@ -337,7 +344,7 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusFilename});
-            this.statusStrip.Location = new System.Drawing.Point(0, 403);
+            this.statusStrip.Location = new System.Drawing.Point(0, 587);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(882, 22);
             this.statusStrip.TabIndex = 2;
@@ -354,27 +361,13 @@
             this.gbPersons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbPersons.Controls.Add(this.dataGridViewPersons);
-            this.gbPersons.Location = new System.Drawing.Point(12, 39);
+            this.gbPersons.Controls.Add(this.dgvPersons);
+            this.gbPersons.Location = new System.Drawing.Point(12, 27);
             this.gbPersons.Name = "gbPersons";
-            this.gbPersons.Size = new System.Drawing.Size(858, 194);
+            this.gbPersons.Size = new System.Drawing.Size(858, 354);
             this.gbPersons.TabIndex = 4;
             this.gbPersons.TabStop = false;
             this.gbPersons.Text = "Сотрудники";
-            // 
-            // dataGridViewPersons
-            // 
-            this.dataGridViewPersons.AllowUserToDeleteRows = false;
-            this.dataGridViewPersons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPersons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPersons.Location = new System.Drawing.Point(3, 16);
-            this.dataGridViewPersons.MultiSelect = false;
-            this.dataGridViewPersons.Name = "dataGridViewPersons";
-            this.dataGridViewPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPersons.Size = new System.Drawing.Size(852, 175);
-            this.dataGridViewPersons.TabIndex = 2;
-            this.dataGridViewPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewPersons_CellDoubleClick);
             // 
             // gpCompetences
             // 
@@ -383,12 +376,32 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gpCompetences.Controls.Add(this.bnCompetence);
             this.gpCompetences.Controls.Add(this.dgvCompetences);
-            this.gpCompetences.Location = new System.Drawing.Point(15, 239);
+            this.gpCompetences.Location = new System.Drawing.Point(15, 387);
             this.gpCompetences.Name = "gpCompetences";
-            this.gpCompetences.Size = new System.Drawing.Size(858, 161);
+            this.gpCompetences.Size = new System.Drawing.Size(858, 197);
             this.gpCompetences.TabIndex = 5;
             this.gpCompetences.TabStop = false;
             this.gpCompetences.Text = "Компетенции";
+            // 
+            // dgvPersons
+            // 
+            this.dgvPersons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPersons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPersons.Location = new System.Drawing.Point(3, 16);
+            this.dgvPersons.Name = "dgvPersons";
+            this.dgvPersons.Size = new System.Drawing.Size(852, 335);
+            this.dgvPersons.TabIndex = 0;
+            // 
+            // dgvCompetences
+            // 
+            this.dgvCompetences.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCompetences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompetences.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCompetences.Location = new System.Drawing.Point(3, 16);
+            this.dgvCompetences.Name = "dgvCompetences";
+            this.dgvCompetences.Size = new System.Drawing.Size(852, 178);
+            this.dgvCompetences.TabIndex = 1;
             // 
             // bnCompetence
             // 
@@ -415,35 +428,8 @@
             this.bnCompetence.Name = "bnCompetence";
             this.bnCompetence.PositionItem = this.bindingNavigatorPositionItem;
             this.bnCompetence.Size = new System.Drawing.Size(852, 25);
-            this.bnCompetence.TabIndex = 5;
+            this.bnCompetence.TabIndex = 2;
             this.bnCompetence.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.addCompetenceToolStripMenuItem_Click);
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -478,9 +464,16 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -503,32 +496,33 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // dgvCompetences
+            // bindingNavigatorAddNewItem
             // 
-            this.dgvCompetences.AllowUserToDeleteRows = false;
-            this.dgvCompetences.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvCompetences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompetences.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCompetences.Location = new System.Drawing.Point(3, 16);
-            this.dgvCompetences.Name = "dgvCompetences";
-            this.dgvCompetences.Size = new System.Drawing.Size(852, 142);
-            this.dgvCompetences.TabIndex = 4;
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
-            // департаментыToolStripMenuItem
+            // bindingNavigatorDeleteItem
             // 
-            this.департаментыToolStripMenuItem.Name = "департаментыToolStripMenuItem";
-            this.департаментыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.департаментыToolStripMenuItem.Text = "Департаменты";
-            this.департаментыToolStripMenuItem.Click += new System.EventHandler(this.департаментыToolStripMenuItem_Click);
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 425);
+            this.ClientSize = new System.Drawing.Size(882, 609);
             this.Controls.Add(this.gpCompetences);
             this.Controls.Add(this.gbPersons);
             this.Controls.Add(this.statusStrip);
@@ -542,13 +536,13 @@
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.gbPersons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersons)).EndInit();
             this.gpCompetences.ResumeLayout(false);
             this.gpCompetences.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnCompetence)).EndInit();
             this.bnCompetence.ResumeLayout(false);
             this.bnCompetence.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,8 +583,10 @@
         private System.Windows.Forms.ToolStripMenuItem addCompetenceToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbPersons;
         private System.Windows.Forms.GroupBox gpCompetences;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem департаментыToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvPersons;
         private System.Windows.Forms.DataGridView dgvCompetences;
-        private System.Windows.Forms.DataGridView dataGridViewPersons;
         private System.Windows.Forms.BindingNavigator bnCompetence;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -603,8 +599,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem департаментыToolStripMenuItem;
     }
 }
 

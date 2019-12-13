@@ -32,15 +32,7 @@ namespace StudentDesktopWF
             // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
             this.personsTableAdapter.Fill(this.studentDataSet.Persons);
             // TODO: This line of code loads data into the 'studentDataSet.Departments' table. You can move, or remove it, as needed.
-            this.departmentsTableAdapter.Fill(this.studentDataSet.Departments);
-            // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
-            this.personsTableAdapter.Fill(this.studentDataSet.Persons);
-            // TODO: This line of code loads data into the 'studentDataSet.person_competence' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
-            this.personsTableAdapter.Fill(this.studentDataSet.Persons);
-            // TODO: This line of code loads data into the 'studentDataSet.person_competence' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
-            this.personsTableAdapter.Fill(this.studentDataSet.Persons);
+
 
         }
 

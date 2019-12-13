@@ -121,7 +121,7 @@ namespace StudentDesktopWF
 
                     //saving to DB
                     command.Parameters["@PersonId"].Value = personId;
-                    command.Parameters["@CompetenceId"].Value = row.Cells["Id"].Value;
+                    command.Parameters["@CompetenceId"].Value = row.Cells[0].Value;
 
                     command.ExecuteNonQuery();
                     
