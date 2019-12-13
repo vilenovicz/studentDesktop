@@ -365,5 +365,16 @@ namespace StudentDesktopWF
             formPerson.ShowDialog();
             LoadFromDB();
         }
+
+        private void курсыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCourses formCourses = new FormCourses();
+            formCourses.Show();
+        }
+
+        private void dgvPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
