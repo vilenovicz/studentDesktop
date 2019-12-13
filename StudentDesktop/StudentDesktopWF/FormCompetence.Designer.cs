@@ -47,6 +47,8 @@
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.competencesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.bSaveChoosen = new System.Windows.Forms.Button();
+            this.gpCompetences = new System.Windows.Forms.GroupBox();
             this.dgvCompetences = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.competencesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencesBindingNavigator)).BeginInit();
             this.competencesBindingNavigator.SuspendLayout();
+            this.gpCompetences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,6 +211,30 @@
             this.competencesBindingNavigatorSaveItem.Text = "Save Data";
             this.competencesBindingNavigatorSaveItem.Click += new System.EventHandler(this.competencesBindingNavigatorSaveItem_Click);
             // 
+            // bSaveChoosen
+            // 
+            this.bSaveChoosen.Location = new System.Drawing.Point(662, 470);
+            this.bSaveChoosen.Name = "bSaveChoosen";
+            this.bSaveChoosen.Size = new System.Drawing.Size(128, 23);
+            this.bSaveChoosen.TabIndex = 2;
+            this.bSaveChoosen.Text = "Сохранить выбранное";
+            this.bSaveChoosen.UseVisualStyleBackColor = true;
+            this.bSaveChoosen.Visible = false;
+            this.bSaveChoosen.Click += new System.EventHandler(this.bSaveChoosen_Click);
+            // 
+            // gpCompetences
+            // 
+            this.gpCompetences.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpCompetences.Controls.Add(this.dgvCompetences);
+            this.gpCompetences.Location = new System.Drawing.Point(12, 37);
+            this.gpCompetences.Name = "gpCompetences";
+            this.gpCompetences.Size = new System.Drawing.Size(781, 427);
+            this.gpCompetences.TabIndex = 3;
+            this.gpCompetences.TabStop = false;
+            this.gpCompetences.Text = "groupBox1";
+            // 
             // dgvCompetences
             // 
             this.dgvCompetences.AutoGenerateColumns = false;
@@ -219,10 +246,10 @@
             this.dataGridViewTextBoxColumn3});
             this.dgvCompetences.DataSource = this.competencesBindingSource;
             this.dgvCompetences.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCompetences.Location = new System.Drawing.Point(0, 25);
+            this.dgvCompetences.Location = new System.Drawing.Point(3, 16);
             this.dgvCompetences.Name = "dgvCompetences";
-            this.dgvCompetences.Size = new System.Drawing.Size(793, 468);
-            this.dgvCompetences.TabIndex = 1;
+            this.dgvCompetences.Size = new System.Drawing.Size(775, 408);
+            this.dgvCompetences.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -251,7 +278,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 493);
-            this.Controls.Add(this.dgvCompetences);
+            this.Controls.Add(this.gpCompetences);
+            this.Controls.Add(this.bSaveChoosen);
             this.Controls.Add(this.competencesBindingNavigator);
             this.Name = "FormCompetence";
             this.Text = "FormCompetence";
@@ -261,6 +289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.competencesBindingNavigator)).EndInit();
             this.competencesBindingNavigator.ResumeLayout(false);
             this.competencesBindingNavigator.PerformLayout();
+            this.gpCompetences.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -286,6 +315,8 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton competencesBindingNavigatorSaveItem;
+        public System.Windows.Forms.Button bSaveChoosen;
+        private System.Windows.Forms.GroupBox gpCompetences;
         private System.Windows.Forms.DataGridView dgvCompetences;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
