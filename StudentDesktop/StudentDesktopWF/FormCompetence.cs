@@ -30,6 +30,9 @@ namespace StudentDesktopWF
 
         private void FormCompetence_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'studentDataSet.Competences' table. You can move, or remove it, as needed.
+            this.competencesTableAdapter.Fill(this.studentDataSet.Competences);
+
             //ArrayList compList = Competence.LoadFromFile();
             //foreach (Competence comp in compList)
             //{
@@ -43,39 +46,39 @@ namespace StudentDesktopWF
             //dataGridViewPersons.AutoGenerateColumns = true;
             //dataGridViewPersons.DataSource = dbManager.ReadData();
 
-            dataGridViewCompetence.DataSource = bindingSource;
-            const string sqlCompetences = @"select Id, Code, Name  from Competences";
+            //dgvCompetences.DataSource = bindingSource;
+            //const string sqlCompetences = @"select Id, Code, Name  from Competences";
 
-            try
-            {
-                SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+            //try
+            //{
+            //    SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
 
-                DataSet data = new DataSet();
-                data.Locale = System.Globalization.CultureInfo.InvariantCulture;
+            //    DataSet data = new DataSet();
+            //    data.Locale = System.Globalization.CultureInfo.InvariantCulture;
 
-                //данные по Компетенциям в DataSet
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCompetences, connection);
-                dataAdapter.Fill(data, "Competences");
+            //    //данные по Компетенциям в DataSet
+            //    SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCompetences, connection);
+            //    dataAdapter.Fill(data, "Competences");
 
-                //Соединяем мастерДата с таблицей Persons
-                bindingSource.DataSource = data;
-                bindingSource.DataMember = "Competences";
+            //    //Соединяем мастерДата с таблицей Persons
+            //    bindingSource.DataSource = data;
+            //    bindingSource.DataMember = "Competences";
 
               
-            }
-            catch
-            {
-                MessageBox.Show("Не удалось считать данные компетенций");
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Не удалось считать данные компетенций");
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ArrayList compList = new ArrayList();
             DataGridViewRow row;
-            for (int i = 0; i < dataGridViewCompetence.Rows.Count - 1; i++)//  .SelectedRows)
+            for (int i = 0; i < dgvCompetences.Rows.Count - 1; i++)//  .SelectedRows)
             {
-                row = dataGridViewCompetence.Rows[i];
+                row = dgvCompetences.Rows[i];
                 {
                     Competence competence = new Competence();
                     competence.Code = row.Cells[0].Value.ToString();
@@ -108,7 +111,7 @@ namespace StudentDesktopWF
             {
                 //String compCode = "";
 
-                foreach (DataGridViewRow row in dataGridViewCompetence.SelectedRows)
+                foreach (DataGridViewRow row in dgvCompetences.SelectedRows)
                 {
                     //if (compCode != "")
                     //{
@@ -140,5 +143,14 @@ namespace StudentDesktopWF
             //dataGridViewPerson
             //dataGridViewCompetence.SelectedRows
         }
-    }
+
+        private void competencesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.competencesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.studentDataSet);
+
+        }
+
+     }
 }

@@ -32,9 +32,11 @@ namespace StudentDesktopWF
             //string filename = "comp.csv";
             string filename = "comp.xml";
 
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.IndentChars = "\t";
+            XmlWriterSettings settings = new XmlWriterSettings
+            {
+                Indent = true,
+                IndentChars = "\t"
+            };
             //settings.Encoding = "utf-8";
 
 

@@ -63,7 +63,7 @@ namespace StudentDesktopWF
         }
 
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog.ShowDialog();
             DataExchange.FileName = saveFileDialog.FileName;
@@ -71,13 +71,13 @@ namespace StudentDesktopWF
             saveToolStripMenuItem_Click(sender, e);
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridViewPersons.Rows.Clear();
             statusFilename.Text = "Нет открытого файла";
         }
 
-        private void dataGridViewPersons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewPersons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             addCompetenceToolStripMenuItem_Click(sender, e);
             //if (dataGridViewPersons.Rows.Count-1 > 0 && e.ColumnIndex == 4)
@@ -271,6 +271,18 @@ namespace StudentDesktopWF
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPerson formPerson = new FormPerson();
+            formPerson.Show();
+        }
+
+        private void департаментыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDepartment formDepartment = new FormDepartment();
+            formDepartment.ShowDialog();
         }
     }
 }
