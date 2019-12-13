@@ -93,6 +93,7 @@ namespace StudentDesktopWF
                 detailsBindingSource.DataSource = masterBindingSource;
                 detailsBindingSource.DataMember = "PersonsCompetences";
                 bnCompetence.BindingSource = detailsBindingSource;
+                bnPerson.BindingSource = masterBindingSource;
 
             }
             catch
@@ -356,6 +357,13 @@ namespace StudentDesktopWF
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             addCompetences(sender, e);
+        }
+
+        private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
+        {
+            FormPerson formPerson = new FormPerson();
+            formPerson.ShowDialog();
+            LoadFromDB();
         }
     }
 }
