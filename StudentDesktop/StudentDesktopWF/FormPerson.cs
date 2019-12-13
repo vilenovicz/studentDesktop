@@ -27,18 +27,40 @@ namespace StudentDesktopWF
 
         private void FormPerson_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'studentDataSet.person_competence' table. You can move, or remove it, as needed.
-            this.person_competenceTableAdapter.Fill(this.studentDataSet.person_competence);
+            // TODO: This line of code loads data into the 'studentDataSet.Departments' table. You can move, or remove it, as needed.
+            this.departmentsTableAdapter.Fill(this.studentDataSet.Departments);
+            // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
+            this.personsTableAdapter.Fill(this.studentDataSet.Persons);
+            // TODO: This line of code loads data into the 'studentDataSet.Departments' table. You can move, or remove it, as needed.
+            this.departmentsTableAdapter.Fill(this.studentDataSet.Departments);
             // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
             this.personsTableAdapter.Fill(this.studentDataSet.Persons);
             // TODO: This line of code loads data into the 'studentDataSet.person_competence' table. You can move, or remove it, as needed.
-            this.person_competenceTableAdapter.Fill(this.studentDataSet.person_competence);
+            // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
+            this.personsTableAdapter.Fill(this.studentDataSet.Persons);
+            // TODO: This line of code loads data into the 'studentDataSet.person_competence' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
             this.personsTableAdapter.Fill(this.studentDataSet.Persons);
 
         }
 
         private void personsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.personsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.studentDataSet);
+
+        }
+
+        private void personsBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.personsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.studentDataSet);
+
+        }
+
+        private void personsBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
         {
             this.Validate();
             this.personsBindingSource.EndEdit();
