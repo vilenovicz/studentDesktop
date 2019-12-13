@@ -71,6 +71,12 @@
     <Compile Include="Competence.cs" />
     <Compile Include="DataExchange.cs" />
     <Compile Include="DBManager.cs" />
+    <Compile Include="FormCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCourses.Designer.cs">
+      <DependentUpon>FormCourses.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDBSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>studentDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormCourses.resx">
+      <DependentUpon>FormCourses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDBSettings.resx">
       <DependentUpon>FormDBSettings.cs</DependentUpon>
     </EmbeddedResource>
