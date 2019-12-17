@@ -13,16 +13,18 @@ namespace StudentDesktopWF
 {
     public partial class FormPerson : Form
     {
+        public int personId { get; set; }
         public FormPerson()
         {
             InitializeComponent();
         }
 
-        private void personsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        public FormPerson(int personId)
         {
-            this.Validate();
-
+            InitializeComponent();
+            this.personId = personId;
         }
+
 
         private void FormPerson_Load(object sender, EventArgs e)
         {
@@ -31,6 +33,8 @@ namespace StudentDesktopWF
             // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
             this.personsTableAdapter.Fill(this.studentDataSet.Persons);
             // TODO: This line of code loads data into the 'studentDataSet.Departments' table. You can move, or remove it, as needed.
+            this.personsBindingSource.Filter = "id = " + personId;
+
 
 
         }
@@ -39,14 +43,26 @@ namespace StudentDesktopWF
         private void btnSavePerson_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
-
-            SqlCommand command = new SqlCommand("uspNewPerson", connection);
+            SqlCommand command = null;
+            if (personId != 0) //update record
+            {
+                command = new SqlCommand("uspUpdatePerson", connection);
+                
+                command.Parameters.Add(new SqlParameter("@PersonId", SqlDbType.Int));
+                command.Parameters["@PersonId"].Value = this.personId;
+            }
+            else //insert record
+            {
+                command = new SqlCommand("uspNewPerson", connection);
+            }
+            
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.Add(new SqlParameter("@LastName", SqlDbType.NVarChar,50));
             command.Parameters.Add(new SqlParameter("@FirstName", SqlDbType.NVarChar,50));
             command.Parameters.Add(new SqlParameter("@Birthday", SqlDbType.DateTime));
             command.Parameters.Add(new SqlParameter("@DepartmentId", SqlDbType.Int));
+
 
             connection.Open();
             try
@@ -59,6 +75,7 @@ namespace StudentDesktopWF
                 command.Parameters["@FirstName"].Value = firstNameTextBox.Text;
                 command.Parameters["@Birthday"].Value = birthdayDateTimePicker.Value;
                 command.Parameters["@DepartmentId"].Value = departmentIdComboBox.SelectedValue;
+
 
                 command.ExecuteNonQuery();
 
@@ -79,6 +96,14 @@ namespace StudentDesktopWF
         private void btnCancelPerson_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void personsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.personsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.studentDataSet);
+
         }
     }
 }

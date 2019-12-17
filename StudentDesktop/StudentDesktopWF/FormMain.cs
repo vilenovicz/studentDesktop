@@ -376,5 +376,29 @@ namespace StudentDesktopWF
         {
 
         }
+
+        private void bindingNavigatorDeleteItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bnPerson_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPerson formPerson = new FormPerson((int)this.dgvPersons.SelectedRows[0].Cells[0].Value);
+            formPerson.ShowDialog();
+            this.LoadFromDB();
+        }
+
+        private void bindingNavigatorAddNewItem1_Click_1(object sender, EventArgs e)
+        {
+            FormPerson formPerson = new FormPerson();
+            formPerson.ShowDialog();
+            this.LoadFromDB();
+        }
     }
 }
