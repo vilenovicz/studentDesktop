@@ -14,6 +14,7 @@ namespace StudentDesktopWF
     public partial class FormPerson : Form
     {
         public int personId { get; set; }
+//        public bool toBeDeleted { get; set; }
         public FormPerson()
         {
             InitializeComponent();
@@ -39,6 +40,36 @@ namespace StudentDesktopWF
 
         }
 
+        public bool DeletePerson()
+        {
+            bool result = false;
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+            SqlCommand command = null;
+            command = new SqlCommand("uspDeletePerson", connection);
+
+            command.Parameters.Add(new SqlParameter("@PersonId", SqlDbType.Int));
+            command.Parameters["@PersonId"].Value = this.personId;
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            connection.Open();
+            try
+            {
+                command.ExecuteNonQuery();
+                result = true;
+            }
+            catch
+            {
+                _ = MessageBox.Show("Удаление сотрудника не удалось");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result;
+
+        }
 
         private void btnSavePerson_Click(object sender, EventArgs e)
         {

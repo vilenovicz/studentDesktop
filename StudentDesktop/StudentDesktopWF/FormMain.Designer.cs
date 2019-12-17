@@ -46,6 +46,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCompetenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.департаментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,6 @@
             this.bnPerson = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -71,11 +71,14 @@
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvPersons = new System.Windows.Forms.DataGridView();
+            this.cmPerson = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.новыйСотрудникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактироватьСотрудникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьСотрудникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gpCompetences = new System.Windows.Forms.GroupBox();
             this.bnCompetence = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -85,16 +88,21 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvCompetences = new System.Windows.Forms.DataGridView();
+            this.cmCompetence = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addCompToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delCompToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.gbPersons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnPerson)).BeginInit();
             this.bnPerson.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
+            this.cmPerson.SuspendLayout();
             this.gpCompetences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnCompetence)).BeginInit();
             this.bnCompetence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).BeginInit();
+            this.cmCompetence.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -216,7 +224,8 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCompetenceToolStripMenuItem,
-            this.editPersonToolStripMenuItem});
+            this.editPersonToolStripMenuItem,
+            this.deletePersonToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.editToolStripMenuItem.Text = "&Редактирование";
@@ -234,6 +243,13 @@
             this.editPersonToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.editPersonToolStripMenuItem.Text = "Редактировать Сотрудника";
             this.editPersonToolStripMenuItem.Click += new System.EventHandler(this.editPersonToolStripMenuItem_Click);
+            // 
+            // deletePersonToolStripMenuItem
+            // 
+            this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
+            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.deletePersonToolStripMenuItem.Text = "Удалить Сотрудника";
+            this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -285,6 +301,7 @@
             // 
             // базаДанныхToolStripMenuItem
             // 
+            this.базаДанныхToolStripMenuItem.Enabled = false;
             this.базаДанныхToolStripMenuItem.Name = "базаДанныхToolStripMenuItem";
             this.базаДанныхToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.базаДанныхToolStripMenuItem.Text = "База данных";
@@ -329,9 +346,9 @@
             // 
             // bnPerson
             // 
-            this.bnPerson.AddNewItem = this.bindingNavigatorAddNewItem1;
+            this.bnPerson.AddNewItem = this.bindingNavigatorAddNewItem;
             this.bnPerson.CountItem = this.bindingNavigatorCountItem1;
-            this.bnPerson.DeleteItem = this.bindingNavigatorDeleteItem1;
+            this.bnPerson.DeleteItem = null;
             this.bnPerson.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem1,
             this.bindingNavigatorMovePreviousItem1,
@@ -342,8 +359,7 @@
             this.bindingNavigatorMoveNextItem1,
             this.bindingNavigatorMoveLastItem1,
             this.bindingNavigatorSeparator5,
-            this.bindingNavigatorAddNewItem1,
-            this.bindingNavigatorDeleteItem1});
+            this.bindingNavigatorAddNewItem1});
             this.bnPerson.Location = new System.Drawing.Point(3, 16);
             this.bnPerson.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
             this.bnPerson.MoveLastItem = this.bindingNavigatorMoveLastItem1;
@@ -363,7 +379,7 @@
             this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem1.Text = "Add new";
-            this.bindingNavigatorAddNewItem1.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click_1);
+            this.bindingNavigatorAddNewItem1.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click);
             // 
             // bindingNavigatorCountItem1
             // 
@@ -371,15 +387,6 @@
             this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem1.Text = "of {0}";
             this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem1
-            // 
-            this.bindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
-            this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
-            this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem1.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem1
             // 
@@ -447,13 +454,44 @@
             this.dgvPersons.AllowUserToDeleteRows = false;
             this.dgvPersons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPersons.ContextMenuStrip = this.cmPerson;
             this.dgvPersons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPersons.Location = new System.Drawing.Point(3, 44);
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersons.Size = new System.Drawing.Size(876, 516);
             this.dgvPersons.TabIndex = 0;
-            this.dgvPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersons_CellContentClick);
+            // 
+            // cmPerson
+            // 
+            this.cmPerson.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новыйСотрудникToolStripMenuItem,
+            this.редактироватьСотрудникаToolStripMenuItem,
+            this.удалитьСотрудникаToolStripMenuItem});
+            this.cmPerson.Name = "cmPerson";
+            this.cmPerson.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.cmPerson.Size = new System.Drawing.Size(223, 70);
+            // 
+            // новыйСотрудникToolStripMenuItem
+            // 
+            this.новыйСотрудникToolStripMenuItem.Name = "новыйСотрудникToolStripMenuItem";
+            this.новыйСотрудникToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.новыйСотрудникToolStripMenuItem.Text = "Новый Сотрудник";
+            this.новыйСотрудникToolStripMenuItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click);
+            // 
+            // редактироватьСотрудникаToolStripMenuItem
+            // 
+            this.редактироватьСотрудникаToolStripMenuItem.Name = "редактироватьСотрудникаToolStripMenuItem";
+            this.редактироватьСотрудникаToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.редактироватьСотрудникаToolStripMenuItem.Text = "Редактировать Сотрудника";
+            this.редактироватьСотрудникаToolStripMenuItem.Click += new System.EventHandler(this.editPersonToolStripMenuItem_Click);
+            // 
+            // удалитьСотрудникаToolStripMenuItem
+            // 
+            this.удалитьСотрудникаToolStripMenuItem.Name = "удалитьСотрудникаToolStripMenuItem";
+            this.удалитьСотрудникаToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.удалитьСотрудникаToolStripMenuItem.Text = "Удалить Сотрудника";
+            this.удалитьСотрудникаToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
             // 
             // gpCompetences
             // 
@@ -471,7 +509,7 @@
             // 
             this.bnCompetence.AddNewItem = this.bindingNavigatorAddNewItem;
             this.bnCompetence.CountItem = this.bindingNavigatorCountItem;
-            this.bnCompetence.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bnCompetence.DeleteItem = null;
             this.bnCompetence.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -482,8 +520,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
+            this.bindingNavigatorAddNewItem});
             this.bnCompetence.Location = new System.Drawing.Point(3, 16);
             this.bnCompetence.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnCompetence.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -511,15 +548,6 @@
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -586,12 +614,34 @@
             // 
             this.dgvCompetences.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCompetences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompetences.ContextMenuStrip = this.cmCompetence;
             this.dgvCompetences.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvCompetences.Location = new System.Drawing.Point(3, 44);
             this.dgvCompetences.Name = "dgvCompetences";
             this.dgvCompetences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompetences.Size = new System.Drawing.Size(876, 150);
             this.dgvCompetences.TabIndex = 1;
+            // 
+            // cmCompetence
+            // 
+            this.cmCompetence.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCompToolStripMenuItem,
+            this.delCompToolStripMenuItem});
+            this.cmCompetence.Name = "cmPerson";
+            this.cmCompetence.Size = new System.Drawing.Size(208, 48);
+            // 
+            // addCompToolStripMenuItem
+            // 
+            this.addCompToolStripMenuItem.Name = "addCompToolStripMenuItem";
+            this.addCompToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.addCompToolStripMenuItem.Text = "Добавить Компетенцию";
+            this.addCompToolStripMenuItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // delCompToolStripMenuItem
+            // 
+            this.delCompToolStripMenuItem.Name = "delCompToolStripMenuItem";
+            this.delCompToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.delCompToolStripMenuItem.Text = "Удалить Компетенцию";
             // 
             // formMain
             // 
@@ -616,12 +666,14 @@
             this.bnPerson.ResumeLayout(false);
             this.bnPerson.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
+            this.cmPerson.ResumeLayout(false);
             this.gpCompetences.ResumeLayout(false);
             this.gpCompetences.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnCompetence)).EndInit();
             this.bnCompetence.ResumeLayout(false);
             this.bnCompetence.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetences)).EndInit();
+            this.cmCompetence.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -661,7 +713,6 @@
         private System.Windows.Forms.BindingNavigator bnCompetence;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -674,7 +725,6 @@
         private System.Windows.Forms.BindingNavigator bnPerson;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
@@ -684,6 +734,14 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
         private System.Windows.Forms.ToolStripMenuItem editPersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletePersonToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmPerson;
+        private System.Windows.Forms.ContextMenuStrip cmCompetence;
+        private System.Windows.Forms.ToolStripMenuItem новыйСотрудникToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьСотрудникаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьСотрудникаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addCompToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem delCompToolStripMenuItem;
     }
 }
 

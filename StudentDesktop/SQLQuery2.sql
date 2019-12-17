@@ -21,3 +21,16 @@ select cr.id as id,
 
 
 select pc.PersonId, c.Code, c.Name  from Competences c inner join person_competence pc on c.id = pc.CompetenceId
+
+select * from Courses c
+inner join course_person cp on c.Id = cp.courseId
+inner join Persons p on cp.PersonId = p.Id
+
+delete from courses where id = 2
+delete from course_person where courseId = 2
+
+select * from persons
+select * from person_competence where personid in (4,5)
+delete from persons where id = 5
+
+exec uspDeletePerson 5

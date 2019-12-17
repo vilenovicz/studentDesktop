@@ -16,7 +16,7 @@ namespace StudentDesktopWF
     public partial class FormCompetence : Form
     {
         private BindingSource bindingSource = new BindingSource();
-        public int personId = 0;
+        public int personId { get; set; }
 
         public FormCompetence()
         {

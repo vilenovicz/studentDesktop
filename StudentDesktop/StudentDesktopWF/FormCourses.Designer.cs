@@ -139,6 +139,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -215,13 +216,13 @@
             this.coursesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.coursesDataGridView.Location = new System.Drawing.Point(12, 28);
             this.coursesDataGridView.Name = "coursesDataGridView";
+            this.coursesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.coursesDataGridView.Size = new System.Drawing.Size(776, 196);
             this.coursesDataGridView.TabIndex = 1;
             // 
             // personsBindingSource
             // 
-            this.personsBindingSource.DataMember = "Persons";
-            this.personsBindingSource.DataSource = this.studentDataSet;
+            this.personsBindingSource.DataSource = this.coursesBindingSource;
             // 
             // personsTableAdapter
             // 
@@ -244,7 +245,7 @@
             this.Controls.Add(this.coursesDataGridView);
             this.Controls.Add(this.coursesBindingNavigator);
             this.Name = "FormCourses";
-            this.Text = "FormCourses";
+            this.Text = "Курсы обучения";
             this.Load += new System.EventHandler(this.FormCourses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
