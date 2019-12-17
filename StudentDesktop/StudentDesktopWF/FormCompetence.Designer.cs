@@ -210,7 +210,6 @@
             this.competencesBindingNavigatorSaveItem.Name = "competencesBindingNavigatorSaveItem";
             this.competencesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.competencesBindingNavigatorSaveItem.Text = "Save Data";
-            this.competencesBindingNavigatorSaveItem.Click += new System.EventHandler(this.competencesBindingNavigatorSaveItem_Click);
             // 
             // bSaveChoosen
             // 
