@@ -331,10 +331,6 @@ namespace StudentDesktopWF
             LoadFromDB();
         }
 
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -348,11 +344,6 @@ namespace StudentDesktopWF
             formDepartment.ShowDialog();
         }
 
-        private void personsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
@@ -372,20 +363,7 @@ namespace StudentDesktopWF
             formCourses.Show();
         }
 
-        private void dgvPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void bindingNavigatorDeleteItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bnPerson_RefreshItems(object sender, EventArgs e)
-        {
-
-        }
 
         private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -394,11 +372,19 @@ namespace StudentDesktopWF
             this.LoadFromDB();
         }
 
-        private void bindingNavigatorAddNewItem1_Click_1(object sender, EventArgs e)
+ 
+        private void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPerson formPerson = new FormPerson();
-            formPerson.ShowDialog();
+            FormPerson formPerson = new FormPerson((int)this.dgvPersons.SelectedRows[0].Cells[0].Value);
+            //formPerson.toBeDeleted = true;
+            if (formPerson.DeletePerson())
+            {
+                MessageBox.Show("Сотрудник удален");
+            }
+            formPerson.Dispose();
             this.LoadFromDB();
         }
+
+  
     }
 }

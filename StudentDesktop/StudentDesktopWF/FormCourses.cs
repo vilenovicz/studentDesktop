@@ -13,12 +13,12 @@ namespace StudentDesktopWF
 {
     public partial class FormCourses : Form
     {
-        private BindingSource masterBindingSource = new BindingSource();
-        private BindingSource detailsBindingSource = new BindingSource();
+        //private BindingSource masterBindingSource = new BindingSource();
+        //private BindingSource detailsBindingSource = new BindingSource();
         private void LoadFromDB()
         {
-            this.coursesDataGridView.DataSource = masterBindingSource;
-            this.personsDataGridView.DataSource = detailsBindingSource;
+            this.coursesDataGridView.DataSource = this.coursesBindingSource; //masterBindingSource;
+            this.personsDataGridView.DataSource = this.personsBindingSource; //detailsBindingSource;
 
             const string sqlCourses = @"select cr.id as id, 
                 cr.Name as [Название курса], 
@@ -27,7 +27,7 @@ namespace StudentDesktopWF
                 cr.DateTo [Дата окончания]
                 from courses cr inner join Competences c on cr.competenceId = c.id";
 
-            const string sqlPersonsOnCourse = @"select cp.CourseId, p.LastName, p.FirstName from Persons p inner join course_person cp on p.id = cp.CourseId";
+            const string sqlPersonsOnCourse = @"select cp.CourseId, p.LastName, p.FirstName from Persons p inner join course_person cp on p.id = cp.PersonId";
 
             try
             {
@@ -52,12 +52,19 @@ namespace StudentDesktopWF
                 data.Relations.Add(relation);
 
                 //Соединяем мастерДата с таблицей Persons
-                masterBindingSource.DataSource = data;
-                masterBindingSource.DataMember = "Courses";
+                //masterBindingSource.DataSource = data;
+                coursesBindingSource.DataSource = data;
+                //masterBindingSource.DataMember = "Courses";
+                coursesBindingSource.DataMember = "Courses";
 
                 //соединяем детейлДата с таблицей Competences
-                detailsBindingSource.DataSource = masterBindingSource;
-                detailsBindingSource.DataMember = "PersonsOnCourse";
+                //detailsBindingSource.DataSource = masterBindingSource;
+                personsBindingSource.DataSource = coursesBindingSource;
+                //detailsBindingSource.DataMember = "PersonsOnCourse";
+                personsBindingSource.DataMember = "PersonsOnCourse";
+
+
+                coursesBindingNavigator.BindingSource = coursesBindingSource; //masterBindingSource;
                 //bnCompetence.BindingSource = detailsBindingSource;
                 //bnPerson.BindingSource = masterBindingSource;
 
@@ -84,6 +91,41 @@ namespace StudentDesktopWF
         {
             LoadFromDB();
 
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            //SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+
+            //SqlCommand command = new SqlCommand("uspDeleteCourse", connection);
+            //command.CommandType = CommandType.StoredProcedure;
+
+            //command.Parameters.Add(new SqlParameter("@CourseId", SqlDbType.Int));
+
+            //connection.Open();
+            ////try
+            ////{
+            ////String compCode = "";
+
+            ////saving to DB
+            //int selectedRowIndex = Int32.Parse(this.coursesBindingNavigator.PositionItem.Text)-1;
+            //command.Parameters["@CourseId"].Value = this.coursesDataGridView.SelectedRows[selectedRowIndex].Cells["Id"].Value;
+            //coursesBindingSource.RemoveCurrent();
+            ////
+            //    command.ExecuteNonQuery();
+
+            ////}
+            ////catch
+            ////{
+            //    _ = MessageBox.Show("Удаление курса не удалось");
+            ////}
+            ////finally
+            ////{
+            //    connection.Close();
+            ////}
+
+            ////DataExchange.Data = compCode;
+            //this.Close();
         }
     }
 }
