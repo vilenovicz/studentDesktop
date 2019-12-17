@@ -233,7 +233,7 @@
             this.gpCompetences.Size = new System.Drawing.Size(781, 427);
             this.gpCompetences.TabIndex = 3;
             this.gpCompetences.TabStop = false;
-            this.gpCompetences.Text = "groupBox1";
+            this.gpCompetences.Text = "Справочник компетенций";
             // 
             // dgvCompetences
             // 
@@ -248,6 +248,7 @@
             this.dgvCompetences.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCompetences.Location = new System.Drawing.Point(3, 16);
             this.dgvCompetences.Name = "dgvCompetences";
+            this.dgvCompetences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompetences.Size = new System.Drawing.Size(775, 408);
             this.dgvCompetences.TabIndex = 2;
             // 

@@ -233,6 +233,7 @@
             this.personsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.personsDataGridView.Location = new System.Drawing.Point(12, 261);
             this.personsDataGridView.Name = "personsDataGridView";
+            this.personsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.personsDataGridView.Size = new System.Drawing.Size(776, 220);
             this.personsDataGridView.TabIndex = 2;
             // 
