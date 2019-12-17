@@ -62,7 +62,7 @@ namespace StudentDesktopWF
                 d.name as Подразделение
                 from persons p inner join Departments d on p.departmentId = d.id";
 
-            const string sqlCompetences = @"select pc.PersonId, c.Code, c.Name  from Competences c inner join person_competence pc on c.id = pc.CompetenceId";
+            const string sqlCompetences = @"select pc.PersonId, c.Id as CompetenceId, c.Code, c.Name  from Competences c inner join person_competence pc on c.id = pc.CompetenceId";
 
             try
             {
@@ -92,6 +92,12 @@ namespace StudentDesktopWF
                 //соединяем детейлДата с таблицей Competences
                 detailsBindingSource.DataSource = masterBindingSource;
                 detailsBindingSource.DataMember = "PersonsCompetences";
+
+                dgvPersons.Columns["Id"].Visible = false;
+                dgvCompetences.Columns["PersonId"].Visible = false;
+                dgvCompetences.Columns["CompetenceId"].Visible = false;
+
+                //Навигаторы к бою!
                 bnCompetence.BindingSource = detailsBindingSource;
                 bnPerson.BindingSource = masterBindingSource;
 
@@ -385,6 +391,14 @@ namespace StudentDesktopWF
             this.LoadFromDB();
         }
 
-  
+        private void delCompToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCompetence formCompetence = new FormCompetence(
+                (int)this.dgvCompetences.SelectedRows[0].Cells["PersonId"].Value,
+                (int)this.dgvCompetences.SelectedRows[0].Cells["CompetenceId"].Value);
+            //formCompetence.ShowDialog();
+            formCompetence.DelPersonCompetence();
+            this.LoadFromDB();
+        }
     }
 }

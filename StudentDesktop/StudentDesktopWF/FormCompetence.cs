@@ -17,15 +17,18 @@ namespace StudentDesktopWF
     {
         private BindingSource bindingSource = new BindingSource();
         public int personId { get; set; }
+        public int competenceId { get; set; }
 
         public FormCompetence()
         {
             InitializeComponent();
         }
 
-        private void dataGridViewCompet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public FormCompetence(int personId, int competenceId)
         {
-
+            InitializeComponent();
+            this.personId = personId;
+            this.competenceId = competenceId;
         }
 
         private void FormCompetence_Load(object sender, EventArgs e)
@@ -91,10 +94,39 @@ namespace StudentDesktopWF
             this.Dispose();
         }
 
-        private void bCompetenceCancel_Click(object sender, EventArgs e)
+    public bool DelPersonCompetence()
         {
-            this.Dispose();
+            bool result = false;
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+            SqlCommand command = null;
+            command = new SqlCommand("uspDelPersonCompetence", connection);
+
+            command.Parameters.Add(new SqlParameter("@PersonId", SqlDbType.Int));
+            command.Parameters.Add(new SqlParameter("@CompetenceId", SqlDbType.Int));
+            command.Parameters["@PersonId"].Value = this.personId;
+            command.Parameters["@COmpetenceId"].Value = this.competenceId;
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            connection.Open();
+            try
+            {
+                command.ExecuteNonQuery();
+                result = true;
+            }
+            catch
+            {
+                _ = MessageBox.Show("Удаление компетенции сотрудника не удалось");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result;
+
         }
+    
 
         private void bSaveChoosen_Click(object sender, EventArgs e)
         {

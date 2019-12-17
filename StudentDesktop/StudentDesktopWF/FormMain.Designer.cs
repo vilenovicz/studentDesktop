@@ -628,7 +628,7 @@
             this.addCompToolStripMenuItem,
             this.delCompToolStripMenuItem});
             this.cmCompetence.Name = "cmPerson";
-            this.cmCompetence.Size = new System.Drawing.Size(208, 48);
+            this.cmCompetence.Size = new System.Drawing.Size(208, 70);
             // 
             // addCompToolStripMenuItem
             // 
@@ -642,6 +642,7 @@
             this.delCompToolStripMenuItem.Name = "delCompToolStripMenuItem";
             this.delCompToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.delCompToolStripMenuItem.Text = "Удалить Компетенцию";
+            this.delCompToolStripMenuItem.Click += new System.EventHandler(this.delCompToolStripMenuItem_Click);
             // 
             // formMain
             // 
