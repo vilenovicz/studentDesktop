@@ -127,5 +127,36 @@ namespace StudentDesktopWF
             ////DataExchange.Data = compCode;
             //this.Close();
         }
+
+        private void editCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNewCourse formNewCourse = new FormNewCourse((int)this.coursesDataGridView.SelectedRows[0].Cells[0].Value);
+            formNewCourse.ShowDialog();
+            this.LoadFromDB();
+        }
+
+        private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNewCourse formNewCourse = new FormNewCourse();
+            formNewCourse.ShowDialog();
+            this.LoadFromDB();
+        }
+
+        private void closeCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNewCourse formNewCourse = new FormNewCourse((int)this.coursesDataGridView.SelectedRows[0].Cells[0].Value);
+            //formPerson.toBeDeleted = true;
+            if (formNewCourse.deleteCourse())
+            {
+                MessageBox.Show("Курс удален");
+            }
+            formNewCourse.Dispose();
+            this.LoadFromDB();
+        }
     }
 }

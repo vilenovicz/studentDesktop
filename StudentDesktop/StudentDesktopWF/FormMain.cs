@@ -400,5 +400,12 @@ namespace StudentDesktopWF
             formCompetence.DelPersonCompetence();
             this.LoadFromDB();
         }
+
+        private void редактироватьКомпетенциюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
