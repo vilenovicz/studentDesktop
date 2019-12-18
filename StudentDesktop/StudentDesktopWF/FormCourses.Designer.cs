@@ -48,22 +48,27 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.coursesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.coursesDataGridView = new System.Windows.Forms.DataGridView();
-            this.personsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personsTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.PersonsTableAdapter();
-            this.personsDataGridView = new System.Windows.Forms.DataGridView();
             this.cmCourses = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personsTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.PersonsTableAdapter();
+            this.personsDataGridView = new System.Windows.Forms.DataGridView();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmPersons = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.delPersonFromCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingNavigator)).BeginInit();
             this.coursesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.coursesDataGridView)).BeginInit();
+            this.cmCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).BeginInit();
-            this.cmCourses.SuspendLayout();
+            this.cmPersons.SuspendLayout();
             this.SuspendLayout();
             // 
             // studentDataSet
@@ -222,6 +227,7 @@
             // 
             // coursesDataGridView
             // 
+            this.coursesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.coursesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.coursesDataGridView.ContextMenuStrip = this.cmCourses;
             this.coursesDataGridView.Location = new System.Drawing.Point(12, 28);
@@ -230,32 +236,17 @@
             this.coursesDataGridView.Size = new System.Drawing.Size(776, 196);
             this.coursesDataGridView.TabIndex = 1;
             // 
-            // personsBindingSource
-            // 
-            this.personsBindingSource.DataSource = this.coursesBindingSource;
-            // 
-            // personsTableAdapter
-            // 
-            this.personsTableAdapter.ClearBeforeFill = true;
-            // 
-            // personsDataGridView
-            // 
-            this.personsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.personsDataGridView.Location = new System.Drawing.Point(12, 261);
-            this.personsDataGridView.Name = "personsDataGridView";
-            this.personsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.personsDataGridView.Size = new System.Drawing.Size(776, 220);
-            this.personsDataGridView.TabIndex = 2;
-            // 
             // cmCourses
             // 
             this.cmCourses.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCourseToolStripMenuItem,
             this.editCourseToolStripMenuItem,
             this.closeCourseToolStripMenuItem,
-            this.delCourseToolStripMenuItem});
+            this.delCourseToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.ToCourseToolStripMenuItem});
             this.cmCourses.Name = "cmCourses";
-            this.cmCourses.Size = new System.Drawing.Size(183, 114);
+            this.cmCourses.Size = new System.Drawing.Size(183, 120);
             // 
             // addCourseToolStripMenuItem
             // 
@@ -285,6 +276,51 @@
             this.delCourseToolStripMenuItem.Text = "Удалить курс";
             this.delCourseToolStripMenuItem.Click += new System.EventHandler(this.delCourseToolStripMenuItem_Click);
             // 
+            // personsBindingSource
+            // 
+            this.personsBindingSource.DataSource = this.coursesBindingSource;
+            // 
+            // personsTableAdapter
+            // 
+            this.personsTableAdapter.ClearBeforeFill = true;
+            // 
+            // personsDataGridView
+            // 
+            this.personsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.personsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.personsDataGridView.ContextMenuStrip = this.cmPersons;
+            this.personsDataGridView.Location = new System.Drawing.Point(12, 261);
+            this.personsDataGridView.Name = "personsDataGridView";
+            this.personsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.personsDataGridView.Size = new System.Drawing.Size(776, 220);
+            this.personsDataGridView.TabIndex = 2;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
+            // 
+            // ToCourseToolStripMenuItem
+            // 
+            this.ToCourseToolStripMenuItem.Name = "ToCourseToolStripMenuItem";
+            this.ToCourseToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.ToCourseToolStripMenuItem.Text = "Направить на курс";
+            this.ToCourseToolStripMenuItem.Click += new System.EventHandler(this.направитьНаКурсToolStripMenuItem_Click);
+            // 
+            // cmPersons
+            // 
+            this.cmPersons.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delPersonFromCourseToolStripMenuItem});
+            this.cmPersons.Name = "cmPersons";
+            this.cmPersons.Size = new System.Drawing.Size(242, 26);
+            // 
+            // delPersonFromCourseToolStripMenuItem
+            // 
+            this.delPersonFromCourseToolStripMenuItem.Name = "delPersonFromCourseToolStripMenuItem";
+            this.delPersonFromCourseToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.delPersonFromCourseToolStripMenuItem.Text = "Отозвать Сотрудника из Курса";
+            this.delPersonFromCourseToolStripMenuItem.Click += new System.EventHandler(this.delPersonFromCourseToolStripMenuItem_Click);
+            // 
             // FormCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,9 +338,10 @@
             this.coursesBindingNavigator.ResumeLayout(false);
             this.coursesBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.coursesDataGridView)).EndInit();
+            this.cmCourses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).EndInit();
-            this.cmCourses.ResumeLayout(false);
+            this.cmPersons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +375,9 @@
         private System.Windows.Forms.ToolStripMenuItem editCourseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeCourseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem delCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem ToCourseToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmPersons;
+        private System.Windows.Forms.ToolStripMenuItem delPersonFromCourseToolStripMenuItem;
     }
 }
