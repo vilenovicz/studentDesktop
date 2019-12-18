@@ -27,7 +27,7 @@ namespace StudentDesktopWF
                 cr.DateTo [Дата окончания]
                 from courses cr inner join Competences c on cr.competenceId = c.id";
 
-            const string sqlPersonsOnCourse = @"select cp.CourseId, p.LastName, p.FirstName from Persons p inner join course_person cp on p.id = cp.PersonId";
+            const string sqlPersonsOnCourse = @"select cp.CourseId, p.id as PersonId, p.LastName as Фамилия, p.FirstName as Имя from Persons p inner join course_person cp on p.id = cp.PersonId";
 
             try
             {
@@ -87,6 +87,39 @@ namespace StudentDesktopWF
 
         }
 
+        public bool DeletePersonFromCourse()
+        {
+            bool result = false;
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
+            SqlCommand command = null;
+            command = new SqlCommand("uspDelPersonFromCourse", connection);
+
+            command.Parameters.Add(new SqlParameter("@PersonId", SqlDbType.Int));
+            command.Parameters.Add(new SqlParameter("@CourseId", SqlDbType.Int));
+
+            command.Parameters["@PersonId"].Value = this.personsDataGridView.SelectedRows[0].Cells["PersonId"].Value;
+            command.Parameters["@CourseId"].Value = this.coursesDataGridView.SelectedRows[0].Cells["Id"].Value;
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            connection.Open();
+            try
+            {
+                command.ExecuteNonQuery();
+                result = true;
+            }
+            catch
+            {
+                _ = MessageBox.Show("Отзыв сотрудника с курса не удался");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result;
+
+        }
         private void FormCourses_Load(object sender, EventArgs e)
         {
             LoadFromDB();
@@ -156,6 +189,19 @@ namespace StudentDesktopWF
                 MessageBox.Show("Курс удален");
             }
             formNewCourse.Dispose();
+            this.LoadFromDB();
+        }
+
+        private void направитьНаКурсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSelectPerson formSelectPerson = new FormSelectPerson((int)this.coursesDataGridView.SelectedRows[0].Cells[0].Value);
+            formSelectPerson.ShowDialog();
+            this.LoadFromDB();
+        }
+
+        private void delPersonFromCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.DeletePersonFromCourse();
             this.LoadFromDB();
         }
     }

@@ -12,9 +12,6 @@ namespace StudentDesktopWF
 {
     class DBManager
     {
-        string srvName = "gsv";
-        string dbName = "student";
-        string userId = "Serge";
 
         BindingSource bindingSource = new BindingSource();
         public BindingSource ReadData()
