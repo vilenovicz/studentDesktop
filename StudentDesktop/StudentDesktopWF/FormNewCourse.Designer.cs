@@ -1,6 +1,6 @@
 ﻿namespace StudentDesktopWF
 {
-    partial class FormCourses
+    partial class FormNewCourse
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCourses));
+            System.Windows.Forms.Label idLabel;
+            System.Windows.Forms.Label nameLabel;
+            System.Windows.Forms.Label competenceIdLabel;
+            System.Windows.Forms.Label statusIdLabel;
+            System.Windows.Forms.Label dateFromLabel;
+            System.Windows.Forms.Label dateToLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewCourse));
             this.studentDataSet = new StudentDesktopWF.studentDataSet();
             this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.coursesTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.CoursesTableAdapter();
             this.tableAdapterManager = new StudentDesktopWF.studentDataSetTableAdapters.TableAdapterManager();
+            this.competencesTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.CompetencesTableAdapter();
             this.coursesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -47,24 +54,83 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.coursesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.coursesDataGridView = new System.Windows.Forms.DataGridView();
-            this.personsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personsTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.PersonsTableAdapter();
-            this.personsDataGridView = new System.Windows.Forms.DataGridView();
-            this.cmCourses = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.delCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.competenceIdComboBox = new System.Windows.Forms.ComboBox();
+            this.competencesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusIdTextBox = new System.Windows.Forms.TextBox();
+            this.dateFromDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dateToDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.btnSaveCourse = new System.Windows.Forms.Button();
+            this.btnCancelCourse = new System.Windows.Forms.Button();
+            this.gbNewCourse = new System.Windows.Forms.GroupBox();
+            idLabel = new System.Windows.Forms.Label();
+            nameLabel = new System.Windows.Forms.Label();
+            competenceIdLabel = new System.Windows.Forms.Label();
+            statusIdLabel = new System.Windows.Forms.Label();
+            dateFromLabel = new System.Windows.Forms.Label();
+            dateToLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingNavigator)).BeginInit();
             this.coursesBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).BeginInit();
-            this.cmCourses.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.competencesBindingSource)).BeginInit();
+            this.gbNewCourse.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(18, 36);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.TabIndex = 1;
+            idLabel.Text = "Id:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(18, 62);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(118, 13);
+            nameLabel.TabIndex = 3;
+            nameLabel.Text = "Наименование курса:";
+            // 
+            // competenceIdLabel
+            // 
+            competenceIdLabel.AutoSize = true;
+            competenceIdLabel.Location = new System.Drawing.Point(18, 88);
+            competenceIdLabel.Name = "competenceIdLabel";
+            competenceIdLabel.Size = new System.Drawing.Size(110, 13);
+            competenceIdLabel.TabIndex = 5;
+            competenceIdLabel.Text = "Компетенция курса:";
+            // 
+            // statusIdLabel
+            // 
+            statusIdLabel.AutoSize = true;
+            statusIdLabel.Location = new System.Drawing.Point(18, 115);
+            statusIdLabel.Name = "statusIdLabel";
+            statusIdLabel.Size = new System.Drawing.Size(76, 13);
+            statusIdLabel.TabIndex = 7;
+            statusIdLabel.Text = "Статус курса:";
+            // 
+            // dateFromLabel
+            // 
+            dateFromLabel.AutoSize = true;
+            dateFromLabel.Location = new System.Drawing.Point(18, 142);
+            dateFromLabel.Name = "dateFromLabel";
+            dateFromLabel.Size = new System.Drawing.Size(74, 13);
+            dateFromLabel.TabIndex = 9;
+            dateFromLabel.Text = "Дата начала:";
+            // 
+            // dateToLabel
+            // 
+            dateToLabel.AutoSize = true;
+            dateToLabel.Location = new System.Drawing.Point(18, 168);
+            dateToLabel.Name = "dateToLabel";
+            dateToLabel.Size = new System.Drawing.Size(92, 13);
+            dateToLabel.TabIndex = 11;
+            dateToLabel.Text = "Дата окончания:";
             // 
             // studentDataSet
             // 
@@ -83,13 +149,17 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CompetencesTableAdapter = null;
+            this.tableAdapterManager.CompetencesTableAdapter = this.competencesTableAdapter;
             this.tableAdapterManager.course_personTableAdapter = null;
             this.tableAdapterManager.CoursesTableAdapter = this.coursesTableAdapter;
             this.tableAdapterManager.DepartmentsTableAdapter = null;
             this.tableAdapterManager.person_competenceTableAdapter = null;
             this.tableAdapterManager.PersonsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = StudentDesktopWF.studentDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // competencesTableAdapter
+            // 
+            this.competencesTableAdapter.ClearBeforeFill = true;
             // 
             // coursesBindingNavigator
             // 
@@ -117,7 +187,7 @@
             this.coursesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.coursesBindingNavigator.Name = "coursesBindingNavigator";
             this.coursesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.coursesBindingNavigator.Size = new System.Drawing.Size(808, 25);
+            this.coursesBindingNavigator.Size = new System.Drawing.Size(671, 25);
             this.coursesBindingNavigator.TabIndex = 0;
             this.coursesBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -147,7 +217,6 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -218,93 +287,129 @@
             this.coursesBindingNavigatorSaveItem.Name = "coursesBindingNavigatorSaveItem";
             this.coursesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.coursesBindingNavigatorSaveItem.Text = "Save Data";
-            this.coursesBindingNavigatorSaveItem.Click += new System.EventHandler(this.coursesBindingNavigatorSaveItem_Click);
+            this.coursesBindingNavigatorSaveItem.Click += new System.EventHandler(this.coursesBindingNavigatorSaveItem_Click_1);
             // 
-            // coursesDataGridView
+            // idTextBox
             // 
-            this.coursesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.coursesDataGridView.ContextMenuStrip = this.cmCourses;
-            this.coursesDataGridView.Location = new System.Drawing.Point(12, 28);
-            this.coursesDataGridView.Name = "coursesDataGridView";
-            this.coursesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.coursesDataGridView.Size = new System.Drawing.Size(776, 196);
-            this.coursesDataGridView.TabIndex = 1;
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.coursesBindingSource, "Id", true));
+            this.idTextBox.Location = new System.Drawing.Point(106, 33);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
+            this.idTextBox.Size = new System.Drawing.Size(503, 20);
+            this.idTextBox.TabIndex = 2;
             // 
-            // personsBindingSource
+            // nameTextBox
             // 
-            this.personsBindingSource.DataSource = this.coursesBindingSource;
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.coursesBindingSource, "Name", true));
+            this.nameTextBox.Location = new System.Drawing.Point(152, 59);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(457, 20);
+            this.nameTextBox.TabIndex = 4;
             // 
-            // personsTableAdapter
+            // competenceIdComboBox
             // 
-            this.personsTableAdapter.ClearBeforeFill = true;
+            this.competenceIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.coursesBindingSource, "CompetenceId", true));
+            this.competenceIdComboBox.DataSource = this.competencesBindingSource;
+            this.competenceIdComboBox.DisplayMember = "Code";
+            this.competenceIdComboBox.FormattingEnabled = true;
+            this.competenceIdComboBox.Location = new System.Drawing.Point(152, 85);
+            this.competenceIdComboBox.Name = "competenceIdComboBox";
+            this.competenceIdComboBox.Size = new System.Drawing.Size(457, 21);
+            this.competenceIdComboBox.TabIndex = 6;
+            this.competenceIdComboBox.ValueMember = "Id";
             // 
-            // personsDataGridView
+            // competencesBindingSource
             // 
-            this.personsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.personsDataGridView.Location = new System.Drawing.Point(12, 261);
-            this.personsDataGridView.Name = "personsDataGridView";
-            this.personsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.personsDataGridView.Size = new System.Drawing.Size(776, 220);
-            this.personsDataGridView.TabIndex = 2;
+            this.competencesBindingSource.DataMember = "Competences";
+            this.competencesBindingSource.DataSource = this.studentDataSet;
             // 
-            // cmCourses
+            // statusIdTextBox
             // 
-            this.cmCourses.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addCourseToolStripMenuItem,
-            this.editCourseToolStripMenuItem,
-            this.closeCourseToolStripMenuItem,
-            this.delCourseToolStripMenuItem});
-            this.cmCourses.Name = "cmCourses";
-            this.cmCourses.Size = new System.Drawing.Size(183, 114);
+            this.statusIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.coursesBindingSource, "StatusId", true));
+            this.statusIdTextBox.Location = new System.Drawing.Point(152, 112);
+            this.statusIdTextBox.Name = "statusIdTextBox";
+            this.statusIdTextBox.ReadOnly = true;
+            this.statusIdTextBox.Size = new System.Drawing.Size(457, 20);
+            this.statusIdTextBox.TabIndex = 8;
             // 
-            // addCourseToolStripMenuItem
+            // dateFromDateTimePicker
             // 
-            this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
-            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.addCourseToolStripMenuItem.Text = "Добавить курс";
-            this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
+            this.dateFromDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.coursesBindingSource, "DateFrom", true));
+            this.dateFromDateTimePicker.Location = new System.Drawing.Point(152, 138);
+            this.dateFromDateTimePicker.Name = "dateFromDateTimePicker";
+            this.dateFromDateTimePicker.Size = new System.Drawing.Size(457, 20);
+            this.dateFromDateTimePicker.TabIndex = 10;
             // 
-            // editCourseToolStripMenuItem
+            // dateToDateTimePicker
             // 
-            this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
-            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.editCourseToolStripMenuItem.Text = "Редактировать курс";
-            this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
+            this.dateToDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.coursesBindingSource, "DateTo", true));
+            this.dateToDateTimePicker.Location = new System.Drawing.Point(152, 164);
+            this.dateToDateTimePicker.Name = "dateToDateTimePicker";
+            this.dateToDateTimePicker.Size = new System.Drawing.Size(457, 20);
+            this.dateToDateTimePicker.TabIndex = 12;
             // 
-            // closeCourseToolStripMenuItem
+            // btnSaveCourse
             // 
-            this.closeCourseToolStripMenuItem.Name = "closeCourseToolStripMenuItem";
-            this.closeCourseToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.closeCourseToolStripMenuItem.Text = "Закрыть курс";
-            this.closeCourseToolStripMenuItem.Click += new System.EventHandler(this.closeCourseToolStripMenuItem_Click);
+            this.btnSaveCourse.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSaveCourse.Location = new System.Drawing.Point(354, 306);
+            this.btnSaveCourse.Name = "btnSaveCourse";
+            this.btnSaveCourse.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveCourse.TabIndex = 15;
+            this.btnSaveCourse.Text = "Сохранить";
+            this.btnSaveCourse.UseVisualStyleBackColor = true;
+            this.btnSaveCourse.Click += new System.EventHandler(this.btnSaveCourse_Click);
             // 
-            // delCourseToolStripMenuItem
+            // btnCancelCourse
             // 
-            this.delCourseToolStripMenuItem.Name = "delCourseToolStripMenuItem";
-            this.delCourseToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.delCourseToolStripMenuItem.Text = "Удалить курс";
-            this.delCourseToolStripMenuItem.Click += new System.EventHandler(this.delCourseToolStripMenuItem_Click);
+            this.btnCancelCourse.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelCourse.Location = new System.Drawing.Point(455, 306);
+            this.btnCancelCourse.Name = "btnCancelCourse";
+            this.btnCancelCourse.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelCourse.TabIndex = 14;
+            this.btnCancelCourse.Text = "Отменить";
+            this.btnCancelCourse.UseVisualStyleBackColor = true;
             // 
-            // FormCourses
+            // gbNewCourse
+            // 
+            this.gbNewCourse.Controls.Add(idLabel);
+            this.gbNewCourse.Controls.Add(this.dateToDateTimePicker);
+            this.gbNewCourse.Controls.Add(dateToLabel);
+            this.gbNewCourse.Controls.Add(this.dateFromDateTimePicker);
+            this.gbNewCourse.Controls.Add(this.idTextBox);
+            this.gbNewCourse.Controls.Add(dateFromLabel);
+            this.gbNewCourse.Controls.Add(nameLabel);
+            this.gbNewCourse.Controls.Add(this.statusIdTextBox);
+            this.gbNewCourse.Controls.Add(this.nameTextBox);
+            this.gbNewCourse.Controls.Add(statusIdLabel);
+            this.gbNewCourse.Controls.Add(competenceIdLabel);
+            this.gbNewCourse.Controls.Add(this.competenceIdComboBox);
+            this.gbNewCourse.Location = new System.Drawing.Point(22, 40);
+            this.gbNewCourse.Name = "gbNewCourse";
+            this.gbNewCourse.Size = new System.Drawing.Size(627, 227);
+            this.gbNewCourse.TabIndex = 16;
+            this.gbNewCourse.TabStop = false;
+            this.gbNewCourse.Text = "Курс обучения";
+            // 
+            // FormNewCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 538);
-            this.Controls.Add(this.personsDataGridView);
-            this.Controls.Add(this.coursesDataGridView);
+            this.ClientSize = new System.Drawing.Size(671, 408);
+            this.Controls.Add(this.gbNewCourse);
+            this.Controls.Add(this.btnSaveCourse);
+            this.Controls.Add(this.btnCancelCourse);
             this.Controls.Add(this.coursesBindingNavigator);
-            this.Name = "FormCourses";
-            this.Text = "Курсы обучения";
-            this.Load += new System.EventHandler(this.FormCourses_Load);
+            this.Name = "FormNewCourse";
+            this.Text = "Добавление курса";
+            this.Load += new System.EventHandler(this.NewCourse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingNavigator)).EndInit();
             this.coursesBindingNavigator.ResumeLayout(false);
             this.coursesBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).EndInit();
-            this.cmCourses.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.competencesBindingSource)).EndInit();
+            this.gbNewCourse.ResumeLayout(false);
+            this.gbNewCourse.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,14 +434,16 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton coursesBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView coursesDataGridView;
-        private System.Windows.Forms.BindingSource personsBindingSource;
-        private studentDataSetTableAdapters.PersonsTableAdapter personsTableAdapter;
-        private System.Windows.Forms.DataGridView personsDataGridView;
-        private System.Windows.Forms.ContextMenuStrip cmCourses;
-        private System.Windows.Forms.ToolStripMenuItem addCourseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editCourseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeCourseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem delCourseToolStripMenuItem;
+        private studentDataSetTableAdapters.CompetencesTableAdapter competencesTableAdapter;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.ComboBox competenceIdComboBox;
+        private System.Windows.Forms.TextBox statusIdTextBox;
+        private System.Windows.Forms.DateTimePicker dateFromDateTimePicker;
+        private System.Windows.Forms.DateTimePicker dateToDateTimePicker;
+        private System.Windows.Forms.BindingSource competencesBindingSource;
+        private System.Windows.Forms.Button btnSaveCourse;
+        private System.Windows.Forms.Button btnCancelCourse;
+        private System.Windows.Forms.GroupBox gbNewCourse;
     }
 }
