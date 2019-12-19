@@ -1,6 +1,6 @@
 ﻿namespace StudentDesktopWF
 {
-    partial class FormSelectPerson
+    partial class FormListOfPersonCompetence
     {
         /// <summary>
         /// Required designer variable.
@@ -34,21 +34,21 @@
             this.personsTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.PersonsTableAdapter();
             this.tableAdapterManager = new StudentDesktopWF.studentDataSetTableAdapters.TableAdapterManager();
             this.personsDataGridView = new System.Windows.Forms.DataGridView();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
+            this.competencesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnToCourse = new System.Windows.Forms.Button();
+            this.btnCancelToCourse = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.competencesTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.CompetencesTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbDepartment = new System.Windows.Forms.ComboBox();
-            this.departmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.departmentsTableAdapter = new StudentDesktopWF.studentDataSetTableAdapters.DepartmentsTableAdapter();
-            this.btnToCourse = new System.Windows.Forms.Button();
-            this.btnCancelToCourse = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.competencesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // studentDataSet
@@ -94,41 +94,9 @@
             this.personsDataGridView.Size = new System.Drawing.Size(768, 335);
             this.personsDataGridView.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "LastName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "LastName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "FirstName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "FirstName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Birthday";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Birthday";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "DepartmentId";
-            this.dataGridViewTextBoxColumn5.HeaderText = "DepartmentId";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            // 
             // cbDepartment
             // 
-            this.cbDepartment.DataSource = this.departmentsBindingSource;
+            this.cbDepartment.DataSource = this.competencesBindingSource;
             this.cbDepartment.DisplayMember = "Code";
             this.cbDepartment.FormattingEnabled = true;
             this.cbDepartment.Location = new System.Drawing.Point(535, 26);
@@ -138,14 +106,10 @@
             this.cbDepartment.ValueMember = "Id";
             this.cbDepartment.TextChanged += new System.EventHandler(this.cbDepartment_TextChanged);
             // 
-            // departmentsBindingSource
+            // competencesBindingSource
             // 
-            this.departmentsBindingSource.DataMember = "Departments";
-            this.departmentsBindingSource.DataSource = this.studentDataSet;
-            // 
-            // departmentsTableAdapter
-            // 
-            this.departmentsTableAdapter.ClearBeforeFill = true;
+            this.competencesBindingSource.DataMember = "Competences";
+            this.competencesBindingSource.DataSource = this.studentDataSet;
             // 
             // btnToCourse
             // 
@@ -155,7 +119,6 @@
             this.btnToCourse.TabIndex = 3;
             this.btnToCourse.Text = "Направить на курс";
             this.btnToCourse.UseVisualStyleBackColor = true;
-            this.btnToCourse.Click += new System.EventHandler(this.btnToCourse_Click);
             // 
             // btnCancelToCourse
             // 
@@ -172,11 +135,47 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(443, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Департамент";
+            this.label1.Text = "Компетенции";
             // 
-            // FormSelectPerson
+            // competencesTableAdapter
+            // 
+            this.competencesTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "LastName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Фамилия";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "FirstName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Имя";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Birthday";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Дата рождения";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "DepartmentId";
+            this.dataGridViewTextBoxColumn5.HeaderText = "DepartmentId";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // FormListOfPersonCompetence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,13 +185,13 @@
             this.Controls.Add(this.btnToCourse);
             this.Controls.Add(this.cbDepartment);
             this.Controls.Add(this.personsDataGridView);
-            this.Name = "FormSelectPerson";
-            this.Text = "Выберите сотрудников";
+            this.Name = "FormListOfPersonCompetence";
+            this.Text = "Cотрудники компетенций";
             this.Load += new System.EventHandler(this.FormSelectPerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.competencesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,16 +204,16 @@
         private studentDataSetTableAdapters.PersonsTableAdapter personsTableAdapter;
         private studentDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView personsDataGridView;
+        private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.Button btnToCourse;
+        private System.Windows.Forms.Button btnCancelToCourse;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource competencesBindingSource;
+        private studentDataSetTableAdapters.CompetencesTableAdapter competencesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.ComboBox cbDepartment;
-        private System.Windows.Forms.BindingSource departmentsBindingSource;
-        private studentDataSetTableAdapters.DepartmentsTableAdapter departmentsTableAdapter;
-        private System.Windows.Forms.Button btnToCourse;
-        private System.Windows.Forms.Button btnCancelToCourse;
-        private System.Windows.Forms.Label label1;
     }
 }

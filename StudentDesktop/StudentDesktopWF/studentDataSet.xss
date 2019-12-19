@@ -9,15 +9,15 @@
     <Shape ID="DesignTable:course_person" ZOrder="12" X="983" Y="70" Height="115" Width="227" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:Departments" ZOrder="11" X="119" Y="340" Height="134" Width="220" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:Competences" ZOrder="6" X="679" Y="-1" Height="134" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:person_competence" ZOrder="5" X="502" Y="306" Height="115" Width="260" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:Persons" ZOrder="4" X="373" Y="-4" Height="172" Width="189" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:Courses" ZOrder="3" X="1001" Y="288" Height="191" Width="197" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:person_competence" ZOrder="2" X="477" Y="307" Height="115" Width="260" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:Persons" ZOrder="1" X="373" Y="-4" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:Courses" ZOrder="5" X="1001" Y="288" Height="191" Width="197" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_course_person_ToPersons" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>562</X>
+          <X>673</X>
           <Y>119</Y>
         </Point>
         <Point>
@@ -29,24 +29,24 @@
     <Connector ID="DesignRelation:FK_person_competence_ToCompetences" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>708</X>
+          <X>683</X>
           <Y>133</Y>
         </Point>
         <Point>
-          <X>708</X>
-          <Y>306</Y>
+          <X>683</X>
+          <Y>307</Y>
         </Point>
       </RoutePoints>
     </Connector>
     <Connector ID="DesignRelation:FK_person_competence_ToPersons" ZOrder="8" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>532</X>
-          <Y>168</Y>
+          <X>507</X>
+          <Y>206</Y>
         </Point>
         <Point>
-          <X>532</X>
-          <Y>306</Y>
+          <X>507</X>
+          <Y>307</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -66,7 +66,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_course_person_ToCourse1" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK_course_person_ToCourse1" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1099</X>
@@ -78,7 +78,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_Table_ToCompetence1" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK_Table_ToCompetence1" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>884</X>

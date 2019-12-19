@@ -22,6 +22,7 @@ namespace StudentDesktopWF
 
             const string sqlCourses = @"select cr.id as id, 
                 cr.Name as [Название курса], 
+                c.id as CompetenceId,
                 c.Name as [Компетенция],
                 cr.DateFrom [Дата начала],
                 cr.DateTo [Дата окончания]
@@ -177,7 +178,38 @@ namespace StudentDesktopWF
 
         private void closeCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //TODO закрытие курса приводит к появлению у Персонала новой Компетенции, которая привязана к Курсу
+            SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString);
 
+            SqlCommand command = new SqlCommand("uspNewCompetence", connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add(new SqlParameter("@PersonId", SqlDbType.Int));
+            command.Parameters.Add(new SqlParameter("@CompetenceId", SqlDbType.Int));
+            
+            command.Parameters["@CompetenceId"].Value = coursesDataGridView.SelectedRows[0].Cells["CompetenceId"].Value;
+
+            connection.Open();
+
+            foreach (DataGridViewRow row in personsDataGridView.Rows)
+            {
+                if (row.Cells["PersonId"].Value != null)
+                {
+                    command.Parameters["@PersonId"].Value = row.Cells["PersonId"].Value;
+
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        _ = MessageBox.Show("Закрытие курса не удалось");
+                    }
+                }
+            }
+            connection.Close();
+
+            this.Close();
         }
 
         private void delCourseToolStripMenuItem_Click(object sender, EventArgs e)

@@ -91,6 +91,8 @@
             this.cmCompetence = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addCompToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delCompToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectPersonByCompetenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.gbPersons.SuspendLayout();
@@ -257,7 +259,9 @@
             this.customizeToolStripMenuItem,
             this.департаментыToolStripMenuItem,
             this.курсыToolStripMenuItem,
-            this.testToolStripMenuItem});
+            this.toolStripSeparator2,
+            this.testToolStripMenuItem,
+            this.selectPersonByCompetenceToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.toolsToolStripMenuItem.Text = "&Справочник";
@@ -266,28 +270,28 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
             this.customizeToolStripMenuItem.Text = "&Компетенции";
             this.customizeToolStripMenuItem.Click += new System.EventHandler(this.customizeToolStripMenuItem_Click);
             // 
             // департаментыToolStripMenuItem
             // 
             this.департаментыToolStripMenuItem.Name = "департаментыToolStripMenuItem";
-            this.департаментыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.департаментыToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
             this.департаментыToolStripMenuItem.Text = "Департаменты";
             this.департаментыToolStripMenuItem.Click += new System.EventHandler(this.департаментыToolStripMenuItem_Click);
             // 
             // курсыToolStripMenuItem
             // 
             this.курсыToolStripMenuItem.Name = "курсыToolStripMenuItem";
-            this.курсыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.курсыToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
             this.курсыToolStripMenuItem.Text = "Курсы";
             this.курсыToolStripMenuItem.Click += new System.EventHandler(this.курсыToolStripMenuItem_Click);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
@@ -644,6 +648,18 @@
             this.delCompToolStripMenuItem.Text = "Удалить Компетенцию";
             this.delCompToolStripMenuItem.Click += new System.EventHandler(this.delCompToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(298, 6);
+            // 
+            // selectPersonByCompetenceToolStripMenuItem
+            // 
+            this.selectPersonByCompetenceToolStripMenuItem.Name = "selectPersonByCompetenceToolStripMenuItem";
+            this.selectPersonByCompetenceToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
+            this.selectPersonByCompetenceToolStripMenuItem.Text = "Отобрать сотрудников по компетенциям";
+            this.selectPersonByCompetenceToolStripMenuItem.Click += new System.EventHandler(this.selectPersonByCompetenceToolStripMenuItem_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -743,6 +759,8 @@
         private System.Windows.Forms.ToolStripMenuItem удалитьСотрудникаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCompToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem delCompToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem selectPersonByCompetenceToolStripMenuItem;
     }
 }
 

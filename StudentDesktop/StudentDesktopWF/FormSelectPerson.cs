@@ -13,6 +13,7 @@ namespace StudentDesktopWF
 {
     public partial class FormSelectPerson : Form
     {
+        int departmentId = 0;
         public int CourseId { get; set; }
 
         public FormSelectPerson()
@@ -39,7 +40,7 @@ namespace StudentDesktopWF
             this.departmentsTableAdapter.Fill(this.studentDataSet.Departments);
             // TODO: This line of code loads data into the 'studentDataSet.Persons' table. You can move, or remove it, as needed.
             this.personsTableAdapter.Fill(this.studentDataSet.Persons);
-            //this.personsBindingSource.Filter = "DepartmentId = " + cbDepartment.SelectedValue;
+            this.personsBindingSource.Filter = "DepartmentId = " + this.departmentId;
 
         }
 
@@ -90,14 +91,15 @@ namespace StudentDesktopWF
             this.Close();
         }
 
-        private void cbDepartment_SelectedValueChanged(object sender, EventArgs e)
+        private void cbDepartment_TextChanged(object sender, EventArgs e)
         {
-            if (cbDepartment.SelectedValue != null)
-            {
-                //personsBindingSource.Filter = "DepartmentId = " + cbDepartment.SelectedValue;
-                //this.FormSelectPerson_Load(sender, e);
+                if (cbDepartment.SelectedValue != null)
+                {
+                    this.departmentId = (int)cbDepartment.SelectedValue;
+                    this.personsTableAdapter.Fill(this.studentDataSet.Persons);
+                    this.personsBindingSource.Filter = "DepartmentId = " + this.departmentId;
             }
-           
+
         }
     }
 }
