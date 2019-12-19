@@ -351,9 +351,9 @@
             // btnSaveCourse
             // 
             this.btnSaveCourse.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSaveCourse.Location = new System.Drawing.Point(354, 306);
+            this.btnSaveCourse.Location = new System.Drawing.Point(414, 306);
             this.btnSaveCourse.Name = "btnSaveCourse";
-            this.btnSaveCourse.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveCourse.Size = new System.Drawing.Size(90, 23);
             this.btnSaveCourse.TabIndex = 15;
             this.btnSaveCourse.Text = "Сохранить";
             this.btnSaveCourse.UseVisualStyleBackColor = true;
@@ -362,7 +362,7 @@
             // btnCancelCourse
             // 
             this.btnCancelCourse.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelCourse.Location = new System.Drawing.Point(455, 306);
+            this.btnCancelCourse.Location = new System.Drawing.Point(556, 306);
             this.btnCancelCourse.Name = "btnCancelCourse";
             this.btnCancelCourse.Size = new System.Drawing.Size(75, 23);
             this.btnCancelCourse.TabIndex = 14;
@@ -394,7 +394,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 408);
+            this.ClientSize = new System.Drawing.Size(671, 352);
             this.Controls.Add(this.gbNewCourse);
             this.Controls.Add(this.btnSaveCourse);
             this.Controls.Add(this.btnCancelCourse);

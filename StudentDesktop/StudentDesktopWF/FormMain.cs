@@ -406,6 +406,10 @@ namespace StudentDesktopWF
 
         }
 
-
+        private void selectPersonByCompetenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormListOfPersonCompetence formListOfPersonCompetence = new FormListOfPersonCompetence();
+            formListOfPersonCompetence.Show();
+        }
     }
 }
